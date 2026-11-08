@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El sitio web de tu negocio es invisible para los compradores de 2027 | JM20</title>
+<meta name="description" content="Preparamos tu infraestructura para la era agéntica antes de que tu competencia te deje fuera del mapa.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JM20">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="El sitio web de tu negocio es invisible para los compradores de 2027">
+<meta property="og:description" content="Preparamos tu infraestructura para la era agéntica antes de que tu competencia te deje fuera del mapa.">
+<meta property="og:image" content="https://jm20aisolutions.com/og-image.png">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="https://jm20aisolutions.com/jm20-logo.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"JM20","url":"https://jm20aisolutions.com/","logo":"https://jm20aisolutions.com/jm20-logo.png","description":"Soluciones de inteligencia artificial y automatización para mejorar el funcionamiento de tu negocio."}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--primary:#0066cc;--primary-focus:#0071e3;--primary-dark:#2997ff;--ink:#1d1d1f;--ink-80:#333;--ink-48:#6e6e73;--hairline:#e0e0e0;--canvas:#fff;--parchment:#f5f5f7;--tile:#272729;--muted-dark:#ccc;--err:#ff6b6b;--font:"SF Pro Text",system-ui,-apple-system,BlinkMacSystemFont,"Inter",sans-serif;--display:"SF Pro Display",system-ui,-apple-system,BlinkMacSystemFont,"Inter",sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{background:var(--canvas);color:var(--ink);font:400 17px/1.47 var(--font);letter-spacing:-.374px;-webkit-font-smoothing:antialiased}
+a{color:var(--primary);text-decoration:none}
+::selection{background:var(--primary);color:#fff}
+:focus-visible{outline:2px solid var(--primary-focus);outline-offset:3px}
+.dark :focus-visible,.global :focus-visible,.dock :focus-visible{outline-color:var(--primary-dark)}
+h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance}
+p{text-wrap:pretty}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* nav */
+.global{background:#000;position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px)}
+.global .wrap{max-width:1024px;height:44px;display:flex;align-items:center;justify-content:space-between}
+.global img{height:24px;width:auto;display:block}
+.global nav{display:flex;gap:20px;min-width:0;overflow-x:auto;scrollbar-width:none}
+.global nav::-webkit-scrollbar{display:none}
+.global nav a{color:#fff;font-size:12px;letter-spacing:-.12px;opacity:.85;display:flex;align-items:center;height:44px;padding:0 4px;white-space:nowrap}
+.global nav a[aria-current]{opacity:1;box-shadow:inset 0 -2px var(--primary-dark)}
+
+/* buttons */
+.btn{display:inline-block;background:var(--primary);color:#fff;border:1px solid var(--primary);border-radius:9999px;padding:11px 22px;font:400 17px/1.2 var(--font);letter-spacing:-.374px;cursor:pointer;text-align:center;transition:transform .12s}
+.btn:active{transform:scale(.95)}
+.btn.ghost{background:transparent;color:var(--primary)}
+.btn[disabled]{opacity:.6;cursor:default}
+.dark .btn:not(.ghost),.dock .btn{background:var(--primary-dark);border-color:var(--primary-dark);color:#000}
+.dark a:not(.btn){color:var(--primary-dark)}
+.ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+
+/* tiles */
+.tile{padding:96px 0;text-align:center}
+.light{background:var(--canvas)}.parch{background:var(--parchment)}.dark{background:var(--tile);color:#fff}
+.tile h1{font-size:clamp(34px,6vw,56px);line-height:1.07;letter-spacing:-.28px;max-width:840px;margin:0 auto}
+.tile h2{font-size:clamp(28px,4.4vw,40px);line-height:1.1;max-width:780px;margin:0 auto}
+.lead{font:300 clamp(19px,2.2vw,24px)/1.5 var(--font);letter-spacing:0;max-width:760px;margin:24px auto 0;color:var(--ink-80)}
+.lead-2{margin-top:16px;color:var(--ink);font-weight:400}
+.dark .lead{color:var(--muted-dark)}
+
+/* demo en vídeo: sin data-src se muestra la simulación en HTML */
+<video src="mcpvideo.mp4" controls width="640" height="360"></video>
+
+.vid{max-width:932px;margin:56px auto 0}
+.player{border-radius:18px;overflow:hidden;background:#000;text-align:left}
+.player video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.chat{padding:clamp(20px,4vw,40px);display:grid;gap:16px}
+.msg{max-width:88%;padding:14px 18px;border-radius:20px;font-size:16px;line-height:1.5}
+.msg.me{justify-self:end;background:var(--primary-dark);color:#000;border-bottom-right-radius:6px}
+.msg.ai{justify-self:start;background:#2c2c2e;color:#f5f5f7;border-bottom-left-radius:6px}
+.msg ol{list-style:none;margin:10px 0 0;padding:0;counter-reset:n}
+.msg li{counter-increment:n;padding:8px 12px;border-radius:10px}
+.msg li::before{content:counter(n) ". ";color:var(--muted-dark)}
+.msg li.you{background:rgba(41,151,255,.22);font-weight:600;color:#fff}
+.vid figcaption{max-width:680px;margin:20px auto 0;text-align:center;color:var(--muted-dark)}
+.vid figcaption strong{display:block;color:#fff;font:600 21px/1.19 var(--display);letter-spacing:.231px;margin-bottom:4px}
+.sim{padding:0 clamp(20px,4vw,40px) clamp(16px,3vw,24px);font-size:14px;letter-spacing:-.224px;color:var(--muted-dark)}
+.light .vid figcaption{color:var(--ink-80)}.light .vid figcaption strong{color:var(--ink)}
+
+/* agentes */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:932px;margin:56px auto 0;text-align:left}
+.duo>div{border-top:1px solid var(--hairline);padding-top:20px}
+.duo h3{font-size:21px;line-height:1.2;margin-bottom:8px}
+.duo p{color:var(--ink-80)}
+
+/* precios */
+.mwrap{margin-top:48px;background:var(--canvas);border:1px solid var(--hairline);border-radius:18px;overflow:hidden;text-align:left}
+table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.45}
+th,td{padding:20px 12px;vertical-align:top;text-align:left;border-bottom:1px solid var(--hairline)}
+tr:last-child>*{border-bottom:0}
+thead th{font:600 17px/1.24 var(--display);letter-spacing:-.374px;vertical-align:bottom}
+thead small,tbody th small.sub{display:block;font:400 14px/1.35 var(--font);letter-spacing:-.224px;color:var(--ink-48);margin-top:2px}
+tbody th{width:24%;font-weight:400}
+tbody th b{display:block;font:600 17px/1.24 var(--display);letter-spacing:-.374px}
+tbody th p{font-size:14px;letter-spacing:-.224px;color:var(--ink-80);margin-top:12px}
+td .p{display:block;font:600 clamp(20px,2.4vw,24px)/1.14 var(--display);letter-spacing:0;color:var(--ink)}
+.p .u{font:400 14px var(--font);letter-spacing:-.224px;color:var(--ink-48)}
+td small{display:block;margin-top:6px;color:var(--ink-48);font-size:14px;line-height:1.35;letter-spacing:-.224px}
+tr.start{background:var(--parchment)}
+.fine{max-width:760px;margin:32px auto 0;text-align:left;font-size:12px;line-height:1.4;letter-spacing:-.12px;color:var(--ink-48)}
+.fine ul{margin:8px 0 0 18px;padding:0}
+.fine li{margin-bottom:2px}
+.fine b{font-weight:600}
+
+
+
+/* ecosistema */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px;text-align:left}
+.card{background:var(--parchment);border:1px solid var(--hairline);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.card h3{font-size:21px;line-height:1.19;letter-spacing:.231px}
+.card p{color:var(--ink-80)}
+.card a{margin-top:auto;display:inline-flex;align-items:center;min-height:44px;font-weight:600}
+
+/* formulario */
+form{max-width:480px;margin:40px auto 0;text-align:left;display:grid;gap:18px}
+label,legend{font-size:14px;font-weight:600}
+input[type=text],input[type=email]{width:100%;height:44px;border-radius:9999px;border:1px solid rgba(0,0,0,.16);background:#fff;color:var(--ink);padding:12px 20px;font:400 17px var(--font);margin-top:6px}
+input::placeholder{color:var(--ink-48)}
+input[aria-invalid=true]{border:2px solid var(--err)}
+fieldset{border:0;padding:0;display:grid;gap:8px}
+legend{margin-bottom:2px}
+.opt{display:flex;align-items:center;gap:12px;min-height:44px;padding:8px 16px;border:1px solid rgba(255,255,255,.28);border-radius:14px;cursor:pointer;font-weight:400;font-size:16px}
+.opt:has(input:checked){border-color:var(--primary-dark);background:rgba(41,151,255,.14)}
+.opt input,.consent input{width:20px;height:20px;flex:none;accent-color:var(--primary-dark)}
+.opt small{display:block;color:var(--muted-dark);font-size:14px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--muted-dark);font-weight:400}
+.consent input{margin-top:2px}
+.ferr{color:var(--err);font-size:14px;line-height:1.4;margin-top:6px}
+form .btn{width:100%}
+.fstatus{font-size:14px;line-height:1.45;color:var(--err);text-align:center}
+.fnote{max-width:480px;margin:20px auto 0;font-size:14px;line-height:1.45;color:var(--muted-dark)}
+.fok{margin-top:48px;font:700 22px/1.25 var(--display)}
+
+footer{background:var(--parchment);color:var(--ink-80);padding:64px 0 calc(64px + env(safe-area-inset-bottom,0px));font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer a{color:var(--ink-80)}
+footer b{display:block;font-size:16px;color:var(--ink);margin-bottom:4px}
+footer nav{display:flex;gap:20px}
+
+/* composición izquierda, tabs, selector de tamaño, vídeo en tarjetas */
+
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;padding:clamp(16px,3vw,24px) clamp(20px,4vw,40px) 0}
+.tabs button{min-height:44px;padding:0 18px;border:0;border-radius:9999px;background:#2c2c2e;color:#f5f5f7;font:600 14px var(--font);letter-spacing:-.224px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:#fff;color:#000}
+.tabs+.chat{padding-top:20px}
+.seg-l{margin-top:28px;color:var(--ink-80);font-size:14px;letter-spacing:-.224px}
+.seg{display:flex;gap:4px;margin-top:12px;padding:4px;background:var(--canvas);border:1px solid var(--hairline);border-radius:9999px;width:max-content;max-width:100%}
+.seg label{position:relative;font-size:14px;font-weight:600;letter-spacing:-.224px}
+.seg input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.seg span{display:block;padding:11px 18px;border-radius:9999px;text-align:center;color:var(--ink-80)}
+.seg input:checked+span{background:var(--ink);color:#fff}
+.seg input:not(:checked)+span:hover{background:var(--parchment)}
+.seg input:focus-visible+span{outline:2px solid var(--primary-focus);outline-offset:2px}
+.seg+.mwrap{margin-top:20px}
+.card .cvid{border-radius:12px;overflow:hidden;background:#000}
+.cvid video{display:block;width:100%;aspect-ratio:16/9}
+@media (min-width:901px){
+  .mwrap .sel{background:var(--ink);color:#fff;border-bottom-color:rgba(255,255,255,.16)}
+  .mwrap .sel .p{color:#fff}
+  .mwrap .sel small,.mwrap .sel .u{color:var(--muted-dark)}
+}
+@media (max-width:900px){
+  .mwrap[data-size=pequeno] td:not([data-t=pequeno]),.mwrap[data-size=mediana] td:not([data-t=mediana]),.mwrap[data-size=gran] td:not([data-t=gran]){display:none}
+}
+@media (max-width:833px){.seg{width:100%}.seg label{flex:1 1 0}}
+
+.gains,.shift{max-width:760px;margin:64px auto 0}
+.gains h3,.shift h3{font-size:28px;line-height:1.14;letter-spacing:.196px;text-align:center}
+.gains ul{list-style:none;padding:0;margin:24px 0 0;text-align:left}
+.gains li{border-top:1px solid rgba(255,255,255,.18);padding:16px 0;color:var(--muted-dark)}
+.gains li:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
+.gains strong{color:#fff;font-weight:600}
+.shift p{margin-top:12px;color:var(--muted-dark)}
+.shift+.ctas{margin-top:40px}
+/* CTA fijo en móvil */
+.dock{display:none}
+
+@media (max-width:900px){
+  thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table,tbody,tr,th,td{display:block}
+  tr{padding:20px 16px;border-bottom:1px solid var(--hairline)}tr:last-child{border-bottom:0}
+  th,td{padding:0;border:0}
+  tbody th{width:auto;margin-bottom:8px}
+  td{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0 0;margin-top:12px;border-top:1px solid var(--hairline)}
+  td::before{content:attr(data-label);font-weight:600;font-size:14px;letter-spacing:-.224px;flex:none;max-width:42%}
+  td>div{text-align:right}
+}
+@media (max-width:833px){
+  .global nav{gap:14px}
+  .cards,.duo{grid-template-columns:1fr}.duo{gap:32px}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .dock{display:block;position:fixed;left:0;right:0;bottom:0;z-index:15;padding:12px 24px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(0,0,0,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  .dock .btn{display:block;width:100%}
+}
+@media (max-width:640px){.tile{padding:64px 0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="global">
+  <div class="wrap">
+    <a href="https://jm20aisolutions.com/" aria-label="JM20"><img src="https://jm20aisolutions.com/jm20-logo.png" alt="JM20"></a>
+    <nav aria-label="Principal">
+      <a href="#demo">Demo</a>
+      <a href="#metodo">Precios</a>
+      <a href="#ecosistema">Productos</a>
+      <a href="#audit">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="tile light" id="top">
+  <div class="wrap">
+    <h1>El futuro de internet ya cambió.</h1>
+    <p class="lead">Tus próximos clientes no buscarán tu negocio; le pedirán a una IA que lo encuentre por ellos.</p>
+    <p class="lead lead-2">Google ya no es la única puerta de entrada. Si los asistentes de IA no pueden entender tu web, leer tus datos o ejecutar acciones en tu sitio, simplemente eres invisible.</p>
+    <div class="ctas">
+      <a class="btn" href="#audit">Descubre si tu sitio está listo para la nueva era</a>
+    </div>
+  </div>
+</section>
+
+<section class="tile dark" id="demo">
+  <div class="wrap">
+    <h2>Dale herramientas a la IA, no un diseño para humanos.</h2>
+    <p class="lead">Los asistentes de IA como: ChatGPT, Claude, Gemini, Perplexity, Copilot no miran tus fotos, tus colores ni el diseño de tu menú: lee datos puros. Si tu web actual está diseñada solo para que la navegue un humano, la IA no la entiende. Y si no la entiende, no te recomendará a tus clientes.</p>
+    <p class="lead lead-2">Nosotros transformamos tu página web tradicional en una plataforma inteligente. Hacemos que tu negocio sea "legible" para que cualquier Inteligencia Artificial pueda entrar, entender lo que vendes y actuar por su usuario.</p>
+    <figure class="vid">
+      <!-- Pon data-src="mcpvideo.mp4" (opcional data-poster y data-captions con un .vtt) y el vídeo sustituye a la simulación -->
+      <div class="player" id="v1" data-src="mcpvideo.mp4" data-poster="" data-captions="">
+        <div class="tabs" role="group" aria-label="Tipo de negocio de la simulación">
+          <button type="button" data-k="rest" aria-pressed="true">Restaurante</button>
+          <button type="button" data-k="barb" aria-pressed="false">Barbería</button>
+          <button type="button" data-k="shop" aria-pressed="false">Tienda</button>
+        </div>
+        <div class="chat">
+          <p class="msg me" id="c-me">Dame los mejores restaurantes de Madrid cerca de Retiro</p>
+          <div class="msg ai" aria-live="polite"><p id="c-intro">Estos son algunos restaurantes cerca del Retiro:</p><ol id="c-list"><li>Restaurante A</li><li class="you">Tu negocio</li><li>Restaurante C</li></ol></div>
+        </div>
+        <p class="sim">Simulación ilustrativa: no se consultan sistemas reales.</p>
+      </div>
+      <figcaption><strong>Así puede encontrar una IA tu web.</strong> Un cliente pregunta, el agente busca, puede localizar tu negocio y entender qué ofreces sin tener que adivinar.</figcaption>
+    </figure>
+    <div class="gains">
+      <h3>¿Qué ganará tu negocio al estar adaptado a la IA?</h3>
+      <ul>
+        <li><strong>Ventas automáticas:</strong> Los asistentes de tus clientes podrán consultar tus precios y stock al instante.</li>
+        <li><strong>Reservas sin clics:</strong> La IA podrá comprobar tu disponibilidad y agendar citas directamente en tu sistema.</li>
+        <li><strong>Presupuestos inmediatos:</strong> Tu web procesará solicitudes de clientes a través de la IA en milisegundos, sin formularios eternos.</li>
+      </ul>
+    </div>
+    <div class="shift">
+      <h3>El tráfico web tradicional está cambiando</h3>
+      <p>ChatGPT ya procesa una quinta parte (20%) del volumen de búsquedas de Google, según OpenAI (Fuente: OpenAI / <a href="https://es.wired.com/articulos/openai-asegura-que-chatgpt-ya-representa-una-quinta-parte-de-las-busquedas-de-google" target="_blank" rel="noopener">WIRED</a>). Si tu infraestructura web solo está diseñada para humanos, estás perdiendo al nuevo tipo de cliente: los agentes de IA.</p>
+    </div>
+    <div class="ctas"><a class="btn" href="#audit">Adapta tu web a la IA</a></div>
+  </div>
+</section>
+
+<section class="tile light" id="agentes">
+  <div class="wrap">
+    <h2>Y cuando te encuentra, trabaja por ti.</h2>
+    <p class="lead">Mira cómo un agente de IA usa las herramientas de una web preparada para reservar y comprar, sin recorrer menús ni rellenar formularios a mano.</p>
+    <figure class="vid">
+      <!-- Sube el vídeo a videos/video-2.mp4 y sustituye a la simulación; si el archivo no existe, se queda la simulación -->
+      <div class="player" data-src="mcpvideo.mp4" data-poster="" data-captions="">
+        <div class="chat">
+          <p class="msg me">Muéstrame Negocio ABC y hazme una reserva para las 20:00</p>
+          <div class="msg ai"><p>He comprobado la disponibilidad de Negocio ABC y he dejado tu reserva confirmada para las 20:00.</p></div>
+        </div>
+        <p class="sim">Simulación ilustrativa: no se consultan sistemas reales.</p>
+      </div>
+      <figcaption><strong>Agendar una cita.</strong> «Reserva una mesa para 4 el próximo viernes a las 19:00». El agente rellena la reserva, comprueba la disponibilidad y la confirma.</figcaption>
+    </figure>
+
+    <figure class="vid" hidden>
+      <!-- Pon data-src="mcpvideo.mp4" y esta figura aparece con su texto; sin vídeo permanece oculta -->
+      <div class="player" data-src="" data-poster="" data-captions=""></div>
+      <figcaption><strong>Comprar y consultar pedidos.</strong> El agente busca productos, lee las políticas de la tienda, llena el carrito y revisa el estado de un pedido.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="tile parch" id="metodo">
+  <div class="wrap">
+    <h2>Nuestro Enfoque Secuencial: Preparar tu Web para la IA.</h2>
+    <p class="lead">Dividimos la transformación agéntica de tu negocio en tres fases claras y medibles, adaptadas al tamaño de tu empresa.</p>
+    <p class="seg-l">Ver precios por tipo de negocio</p>
+    <div class="seg" role="radiogroup" aria-label="Tamaño de tu empresa">
+      <label><input type="radio" name="pick" value="pequeno"><span>Pequeño Negocio</span></label>
+      <label><input type="radio" name="pick" value="mediana"><span>Mediana Empresa</span></label>
+      <label><input type="radio" name="pick" value="gran"><span>Gran Empresa</span></label>
+    </div>
+    <div class="mwrap">
+      <table>
+        <caption class="sr">Precios de cada paso según el tamaño de la empresa</caption>
+        <thead><tr>
+          <th scope="col"><span class="sr">Paso</span></th>
+          <th scope="col">Pequeño Negocio<small>(Barberías, Salones, Cafés)</small></th>
+          <th scope="col">Mediana Empresa<small>(Multilocal, Agencias, B2B)</small></th>
+          <th scope="col">Gran Empresa<small>(E-commerce, Plataformas)</small></th>
+        </tr></thead>
+        <tbody>
+          <tr class="start">
+            <th scope="row"><b>1. AUDITORÍA</b><small class="sub">(Visibilidad)</small><p>Revisamos si tu web está preparada para que ChatGPT, Claude y otras IA puedan leerla y entenderla.</p></th>
+            <td data-label="Pequeño Negocio" data-t="pequeno"><div><span class="p">99€</span><small>(100% descontable si optimizas)</small><small>(Entrega en 2 días)</small></div></td>
+            <td data-label="Mediana Empresa" data-t="mediana"><div><span class="p">299€</span><small>(descuento de 100€ si optimizas)</small><small>(Entrega en 4-5 días)</small></div></td>
+            <td data-label="Gran Empresa" data-t="gran"><div><span class="p">Consultar</span><small>(Desde 1.000€)</small><small>(descuento de 200€ si optimizas)</small><small>(Entrega en 6-8 días)</small></div></td>
+          </tr>
+          <tr>
+            <th scope="row"><b>2. OPTIMIZACIÓN</b><small class="sub">(Visibilidad en IA y Estructura Limpia)</small><p>Ordenamos la información de tu negocio para que las IA puedan encontrarla y entenderla, y les indicamos qué pueden usar de tu web.</p></th>
+            <td data-label="Pequeño Negocio" data-t="pequeno"><div><span class="p">399€</span></div></td>
+            <td data-label="Mediana Empresa" data-t="mediana"><div><span class="p">899€</span></div></td>
+            <td data-label="Gran Empresa" data-t="gran"><div><span class="p">3.500€</span></div></td>
+          </tr>
+          <tr>
+            <th scope="row"><b>3. CAPACIDADES AGÉNTICAS</b><small class="sub">(Herramientas en la Web)</small><p>Programamos accesos directos con WebMCP, el estándar de Google Chrome, para que un agente de IA pueda reservar o pagar en tu web por su cuenta.</p></th>
+            <td data-label="Pequeño Negocio" data-t="pequeno"><div><span class="p">699€</span></div></td>
+            <td data-label="Mediana Empresa" data-t="mediana"><div><span class="p">2.500€ - 4.500€</span></div></td>
+            <td data-label="Gran Empresa" data-t="gran"><div><span class="p"><span class="u">Desde </span>8.000€</span></div></td>
+          </tr>
+          <tr>
+            <th scope="row"><b>MANTENIMIENTO RECURRENTE</b><small class="sub">(Mensual)</small><p>Cada mes revisamos que las IA puedan seguir leyendo tu web y mantenemos tus datos al día en tiempo real.</p></th>
+            <td data-label="Pequeño Negocio" data-t="pequeno"><div><span class="p">29€<span class="u">/mes</span></span></div></td>
+            <td data-label="Mediana Empresa" data-t="mediana"><div><span class="p">79€<span class="u">/mes</span></span></div></td>
+            <td data-label="Gran Empresa" data-t="gran"><div><span class="p"><span class="u">Desde </span>199€<span class="u">/mes</span></span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="fine">
+      <p>No podemos garantizar que ChatGPT, Claude u otras IA te recomienden o te incluyan en sus respuestas. Hay factores que influyen en que una IA te recomiende, como la información clara de tu negocio (qué ofreces, dónde estás, horarios y precios), que tus datos sean coherentes en tu web, Google, Apple Maps y directorios, las reseñas y menciones de tus clientes y de otras webs, un contenido útil que responda lo que tus clientes preguntan de verdad, una web rápida, ordenada y abierta a las IA, y que tu información esté siempre al día (horarios, precios y stock).</p>
+    </div>
+  </div>
+</section>
+
+<section class="tile light" id="ecosistema">
+  <div class="wrap">
+    <h2>Nuestros productos ya están listos para agentes de IA.</h2>
+    <p class="lead">Noah y Murph están preparados para la era de los agentes de IA. Conócelos.</p>
+    <div class="cards">
+      <!-- Pon data-src="video-noah.mp4" y el vídeo aparece en la tarjeta; sin data-src no se muestra nada -->
+      <article class="card">
+        <div class="cvid" data-src="" data-poster="" data-captions="" hidden></div>
+        <h3>Noah — Recepcionista de IA por Voz</h3>
+        <p>No pierdas ni una sola reserva más por teléfono. Noah atiende las llamadas perdidas de tu negocio, consulta tu calendario real en la web optimizada y agenda, cambia o cancela citas al momento.</p>
+        <a href="https://noah.jm20aisolutions.com/">Conocer a Noah →</a>
+      </article>
+      <article class="card">
+        <div class="cvid" data-src="" data-poster="" data-captions="" hidden></div>
+        <h3>Murph — Agente de experiencia del cliente</h3>
+        <p>Conecta tu base de datos web optimizada con Murph. Automatiza la atención de tu comercio, responde dudas sobre stock en tiempo real y gestiona pedidos de forma segura sin intervención humana.</p>
+        <a href="https://murph.jm20aisolutions.com/">Conocer a Murph →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="tile dark" id="audit">
+  <div class="wrap">
+    <h2>Descubre si tu web es visible para la inteligencia artificial.</h2>
+    <!-- Supabase: inserta en public.leads_webmcp con la clave publishable (segura en el navegador). Requiere RLS con política de solo insertar. NUNCA pongas aquí la secret/service key -->
+    <form id="audit-form" data-endpoint="https://wiavnyuchdsfztzhvaua.supabase.co/rest/v1/leads_webmcp" data-apikey="sb_publishable_6CKGYm3F1xTQMNpAyFlWWA_TwaIrGyo" novalidate>
+      <div><label for="nombre">Nombre del Contacto</label><input id="nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre"><p class="ferr" id="e-nombre" hidden></p></div>
+      <div><label for="empresa">Nombre de la Empresa</label><input id="empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="e-empresa"><p class="ferr" id="e-empresa" hidden></p></div>
+      <div><label for="url">URL del Sitio Web</label><input id="url" name="url" type="text" inputmode="url" autocomplete="url" autocapitalize="none" spellcheck="false" placeholder="https://" required aria-describedby="e-url"><p class="ferr" id="e-url" hidden></p></div>
+      <div><label for="email">Email de Contacto</label><input id="email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><p class="ferr" id="e-email" hidden></p></div>
+      <fieldset aria-describedby="e-tamano">
+        <legend>Tamaño de tu empresa</legend>
+        <label class="opt"><input type="radio" name="tamano" value="pequeno" required><span>Pequeño Negocio<small>Auditoría 99€, entrega en 2 días</small></span></label>
+        <label class="opt"><input type="radio" name="tamano" value="mediana"><span>Mediana Empresa<small>Auditoría 299€, entrega en 4-5 días</small></span></label>
+        <label class="opt"><input type="radio" name="tamano" value="gran"><span>Gran Empresa<small>Auditoría desde 1.000€, entrega en 6-8 días</small></span></label>
+        <p class="ferr" id="e-tamano" hidden></p>
+      </fieldset>
+      <div>
+        <label class="consent" for="gdpr"><input id="gdpr" name="consentimiento" type="checkbox" required aria-describedby="e-consentimiento"><span>He leído y acepto la <a href="https://jm20aisolutions.com/politica-de-privacidad.html">política de privacidad</a>. Consiento el análisis técnico de la URL facilitada para la emisión de la auditoría solicitada.</span></label>
+        <p class="ferr" id="e-consentimiento" hidden></p>
+      </div>
+      <p class="fstatus" id="fstatus" role="alert" hidden></p>
+      <button class="btn" type="submit">Solicitar Auditoría</button>
+    </form>
+    <p class="fnote">Desde 99€ según el tamaño de tu empresa (<a href="#metodo">ver precios</a>).</p>
+    <p class="fok" id="fok" role="status" tabindex="-1" hidden>Hemos recibido tu solicitud. Te contactaremos por email.</p>
+  </div>
+</section>
+</main>
+
+<footer id="foot">
+  <div class="wrap">
+    <div><b>JM20 — Tu socio de IA.</b>Soluciones de inteligencia artificial y automatización para mejorar el funcionamiento de tu negocio.</div>
+    <nav aria-label="Legal">
+      <a href="https://jm20aisolutions.com/politica-de-privacidad.html">Política de privacidad</a>
+      <a href="https://jm20aisolutions.com/terminos-de-servicio.html">Aviso legal</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="dock" id="dock" hidden><a class="btn" href="#audit">Solicitar Auditoría</a></div>
+
+<script>
+/* tabla de precios: conserva la semántica aunque en móvil se apile */
+(function(){
+  var t=document.querySelector('.mwrap table');t.setAttribute('role','table');
+  [].forEach.call(t.querySelectorAll('thead,tbody'),function(e){e.setAttribute('role','rowgroup')});
+  [].forEach.call(t.querySelectorAll('tr'),function(e){e.setAttribute('role','row')});
+  [].forEach.call(t.querySelectorAll('thead th'),function(e){e.setAttribute('role','columnheader')});
+  [].forEach.call(t.querySelectorAll('tbody th'),function(e){e.setAttribute('role','rowheader')});
+  [].forEach.call(t.querySelectorAll('td'),function(e){e.setAttribute('role','cell')});
+})();
+/* sección activa en el menú y CTA fijo en móvil */
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  var links={},all=document.querySelectorAll('.global nav a');
+  [].forEach.call(all,function(a){links[a.hash.slice(1)]=a});links.agentes=links.demo;
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;
+    [].forEach.call(all,function(a){a.removeAttribute('aria-current')});
+    var a=links[e.target.id];if(a)a.setAttribute('aria-current','true');
+  })},{rootMargin:'-45% 0px -50% 0px'});
+  ['demo','agentes','metodo','ecosistema','audit'].forEach(function(id){spy.observe(document.getElementById(id))});
+  var dock=document.getElementById('dock'),seen={};
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){seen[e.target.id]=e.isIntersecting});
+    dock.hidden=Object.keys(seen).some(function(k){return seen[k]});
+  });
+  ['top','audit','foot'].forEach(function(id){io.observe(document.getElementById(id))});
+})();
+/* vídeos: con data-src el vídeo sustituye a la simulación */
+[].forEach.call(document.querySelectorAll('.player,.cvid'),function(pl){
+  var src=pl.dataset.src;if(!src)return;
+  var v=document.createElement('video');v.controls=true;v.playsInline=true;v.preload='metadata';
+  if(pl.dataset.poster)v.poster=pl.dataset.poster;
+  if(pl.dataset.captions){var t=document.createElement('track');t.kind='captions';t.src=pl.dataset.captions;t.srclang='es';t.label='Español';t.default=true;v.appendChild(t)}
+  v.addEventListener('loadedmetadata',function(){pl.textContent='';pl.appendChild(v);pl.hidden=false;var fg=pl.closest('figure');if(fg)fg.hidden=false});
+  v.src=src;
+});
+/* simulación: tipo de negocio (desaparece al poner el vídeo) */
+(function(){
+  var box=document.getElementById('v1');if(!box)return;
+  var d={rest:['Dame los mejores restaurantes de Madrid cerca de Retiro','Estos son algunos restaurantes cerca del Retiro:','Restaurante A','Restaurante C'],barb:['Recomiéndame una barbería en Madrid con hueco hoy','Estas barberías tienen hueco hoy:','Barbería A','Barbería C'],shop:['¿Dónde compro zapatillas de running en Madrid con envío para mañana?','Estas tiendas tienen stock y envío para mañana:','Tienda A','Tienda C']};
+  var me=document.getElementById('c-me'),intro=document.getElementById('c-intro'),list=document.getElementById('c-list'),bs=box.querySelectorAll('.tabs button');
+  [].forEach.call(bs,function(b){b.addEventListener('click',function(){
+    var x=d[b.dataset.k];me.textContent=x[0];intro.textContent=x[1];list.children[0].textContent=x[2];list.children[2].textContent=x[3];
+    [].forEach.call(bs,function(o){o.setAttribute('aria-pressed',String(o===b))});
+  })});
+})();
+/* tamaño de empresa: un solo selector para tabla y formulario */
+(function(){
+  var w=document.querySelector('.mwrap'),pick=document.querySelectorAll('input[name=pick]'),form=document.querySelectorAll('input[name=tamano]');
+  function set(v){
+    w.dataset.size=v;
+    [].forEach.call(w.querySelectorAll('.sel'),function(e){e.classList.remove('sel')});
+    var i=['pequeno','mediana','gran'].indexOf(v)+1;
+    [].forEach.call(w.querySelectorAll('tr'),function(r){if(r.children[i])r.children[i].classList.add('sel')});
+    [].forEach.call(pick,function(r){r.checked=r.value===v});
+    [].forEach.call(form,function(r){var on=r.value===v;if(on!==r.checked){r.checked=on;if(on)r.dispatchEvent(new Event('input',{bubbles:true}))}});
+  }
+  [].forEach.call(pick,function(r){r.addEventListener('change',function(){set(r.value)})});
+  [].forEach.call(form,function(r){r.addEventListener('change',function(){set(r.value)})});
+})();
+/* formulario */
+(function(){
+  var f=document.getElementById('audit-form'),st=document.getElementById('fstatus'),done=document.getElementById('fok'),b=f.querySelector('button'),label=b.textContent;
+  var names=['nombre','empresa','url','email','tamano','consentimiento'];
+  var msgs={nombre:'Escribe tu nombre.',empresa:'Escribe el nombre de tu empresa.',url:'Escribe la web de tu negocio, por ejemplo minegocio.es.',email:'Escribe un email válido, por ejemplo nombre@empresa.es.',tamano:'Elige el tamaño de tu empresa.',consentimiento:'Acepta la política de privacidad para continuar.'};
+  function normUrl(v){v=v.trim();if(!v)return '';if(!/^https?:\/\//i.test(v))v='https://'+v;try{var u=new URL(v);return u.hostname.indexOf('.')>0?u.href:''}catch(e){return ''}}
+  function fields(n){var e=f.elements[n];return e.length?[].slice.call(e):[e]}
+  function check(n){
+    var e=f.elements[n],ok;
+    if(n==='url')ok=!!normUrl(e.value);
+    else if(n==='email')ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.value.trim());
+    else if(n==='tamano')ok=!!f.querySelector('input[name=tamano]:checked');
+    else if(n==='consentimiento')ok=e.checked;
+    else ok=!!e.value.trim();
+    var p=document.getElementById('e-'+n);p.textContent=ok?'':msgs[n];p.hidden=ok;
+    fields(n).forEach(function(i){i.setAttribute('aria-invalid',String(!ok))});
+    return ok;
+  }
+  function fail(m){st.textContent=m;st.hidden=false;b.disabled=false;b.textContent=label}
+  f.addEventListener('input',function(e){var n=e.target.name;if(n&&e.target.getAttribute('aria-invalid')==='true')check(n)});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();st.hidden=true;
+    var bad=names.filter(function(n){return !check(n)});
+    if(bad.length){fields(bad[0])[0].focus();return}
+    f.elements.url.value=normUrl(f.elements.url.value);
+    b.disabled=true;b.textContent='Enviando…';
+    var ep=f.dataset.endpoint;
+    if(!ep){console.warn('audit-form: falta data-endpoint');fail('No hemos podido enviar tu solicitud ahora mismo. Inténtalo de nuevo en unos minutos.');return}
+    var key=f.dataset.apikey;
+    var body={nombre:f.elements.nombre.value.trim(),empresa:f.elements.empresa.value.trim(),url:f.elements.url.value,email:f.elements.email.value.trim(),tamano:f.querySelector('input[name=tamano]:checked').value,consentimiento:true};
+    var h={'Content-Type':'application/json',Prefer:'return=minimal'};if(key)h.apikey=key;
+    fetch(ep,{method:'POST',headers:h,body:JSON.stringify(body)})
+      .then(function(r){if(!r.ok)return r.text().then(function(t){console.error('audit-form',r.status,t);throw r.status});f.hidden=true;done.hidden=false;done.focus()})
+      .catch(function(s){fail(typeof s==='number'?'Tu solicitud no se ha podido registrar. Inténtalo de nuevo en unos minutos.':'No hemos podido enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.')});
+  });
+})();
+</script>
+</body>
+</html>
