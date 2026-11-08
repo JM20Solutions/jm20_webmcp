@@ -1,0 +1,34 @@
+# Formato Cloudflare (Workers Assets / Pages) y Netlify.
+# GitHub Pages IGNORA este archivo.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https:; connect-src 'self' https://wiavnyuchdsfztzhvaua.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  Link: </.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json"
+
+# Estáticos con caché larga (si cambias un archivo, renómbralo o añade ?v=2 en el HTML)
+/*.css
+  Cache-Control: public, max-age=3600
+/*.js
+  Cache-Control: public, max-age=3600
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/audio/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Descubrimiento para agentes: abierto a navegadores y con el tipo correcto
+/.well-known/agent-skills/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=300
+/.well-known/agent-skills/index.json
+  Content-Type: application/json; charset=utf-8
+/.well-known/agent-skills/*/SKILL.md
+  Content-Type: text/markdown; charset=utf-8
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *

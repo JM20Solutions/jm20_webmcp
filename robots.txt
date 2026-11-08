@@ -1,0 +1,15 @@
+# JM20 — https://jm20aisolutions.com
+# Sitio abierto a buscadores y asistentes de IA (es justo lo que vendemos).
+User-agent: *
+Allow: /
+
+# Si algún día quieres bloquear solo el ENTRENAMIENTO de modelos (no la búsqueda
+# ni la lectura en vivo), descomenta estas líneas:
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: Google-Extended
+# Disallow: /
+# User-agent: CCBot
+# Disallow: /
+
+Sitemap: https://jm20aisolutions.com/sitemap.xml

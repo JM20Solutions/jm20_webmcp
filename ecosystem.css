@@ -1,0 +1,6 @@
+/* ecosistema */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px;text-align:left}
+.card{background:var(--parchment);border:1px solid var(--hairline);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.card h3{font-size:21px;line-height:1.19;letter-spacing:.231px}
+.card p{color:var(--ink-80)}
+.card a{margin-top:auto;display:inline-flex;align-items:center;min-height:44px;font-weight:600}
