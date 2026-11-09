@@ -1,36 +1,33 @@
-/* formulario: tarjeta centrada sobre azul suave */
-#audit-form{max-width:640px;margin:48px auto 0;padding:40px;text-align:left;display:grid;gap:20px;background:var(--canvas);border:1px solid rgba(0,0,0,.08);border-radius:18px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-#audit-form label,#audit-form legend{font:600 14px/1.29 var(--font);letter-spacing:-.224px;color:var(--ink)}
-input[type=text],input[type=email]{display:block;width:100%;height:44px;margin-top:8px;padding:0 20px;border:1px solid transparent;border-radius:9999px;background:var(--parchment);color:var(--ink);font:400 17px var(--font);letter-spacing:-.374px}
-input::placeholder{color:var(--ink-48)}
-input[type=text]:focus-visible,input[type=email]:focus-visible{outline:2px solid var(--primary-focus);outline-offset:0;background:var(--canvas)}
-input[type=text][aria-invalid=true],input[type=email][aria-invalid=true]{border-color:var(--err)}
-fieldset{border:0;padding:0;margin:0;min-width:0}
-legend{padding:0;margin-bottom:10px}
-.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.opt{position:relative;display:block;padding:14px 16px;border:2px solid var(--hairline);border-radius:18px;cursor:pointer;background:var(--canvas)}
+/* formulario: mosaico oscuro, campos como en la web principal */
+#audit-form{max-width:560px;margin-top:28px;display:grid;gap:4px;text-align:left}
+.row2{display:grid;gap:4px}
+#audit-form label,#audit-form legend{display:block;font:400 13px/1.4 var(--font);color:#f5f5f7;margin-top:10px}
+legend{padding:0;margin-bottom:6px}
+input[type=text],input[type=email]{display:block;width:100%;margin-top:4px;padding:10px 12px;border:1px solid var(--ink-48);border-radius:10px;background:#2a2a2c;color:#fff;font:17px var(--font)}
+input::placeholder{color:var(--muted-dark)}
+input[type=text]:focus-visible,input[type=email]:focus-visible{outline:3px solid var(--primary-dark);outline-offset:2px}
+input[aria-invalid=true]{border-color:var(--err-dark)}
+fieldset{border:0;padding:0;margin:10px 0 0;min-width:0}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.opt{position:relative;display:block;margin-top:0!important;padding:12px 14px;border:1px solid var(--ink-48);border-radius:10px;background:#2a2a2c;cursor:pointer}
 .opt input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
-.opt span{display:block;font:600 15px/1.27 var(--font);letter-spacing:-.224px;color:var(--ink)}
-.opt small{display:block;margin-top:4px;font:400 13px/1.38 var(--font);letter-spacing:-.12px;color:var(--ink-48)}
-.opt:has(input:checked){border-color:var(--primary-focus)}
-.opt:has(input:focus-visible){outline:2px solid var(--primary-focus);outline-offset:2px}
-.opt:has(input[aria-invalid=true]){border-color:var(--err)}
-#audit-form label.consent{display:flex;gap:12px;align-items:flex-start;font:400 14px/1.45 var(--font);letter-spacing:-.224px;color:var(--ink-80)}
-.consent input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:var(--primary)}
-.consent a{color:var(--primary);text-decoration:underline}
-.ferr{margin-top:8px;font-size:14px;line-height:1.4;letter-spacing:-.224px;color:var(--err)}
-#audit-form .btn{width:100%;min-height:48px;margin-top:4px}
-.fstatus{font-size:14px;line-height:1.45;color:var(--err);text-align:center}
-.fnote{max-width:640px;margin:24px auto 0;font-size:14px;line-height:1.45;letter-spacing:-.224px;color:var(--ink-48)}
-.fok{max-width:640px;margin:48px auto 0;padding:40px;background:var(--canvas);border:1px solid rgba(0,0,0,.08);border-radius:18px;font:600 24px/1.25 var(--display);letter-spacing:0;color:var(--ink)}
-@media (max-width:640px){
-  #audit-form{padding:24px}
-  .row2,.sizes{grid-template-columns:1fr}
-}
-
-footer{background:var(--parchment);color:var(--ink-80);padding:64px 0 calc(64px + env(safe-area-inset-bottom,0px));font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-footer a{color:var(--ink-80)}
-footer b{display:block;font-size:16px;color:var(--ink);margin-bottom:4px}
-footer nav{display:flex;gap:20px}
+.opt span{display:block;font:600 15px/1.35 var(--font);color:#f5f5f7}
+.opt small{display:block;margin-top:4px;font:400 13px/1.38 var(--font);color:var(--muted-dark)}
+.opt:has(input:checked){background:#f5f5f7;border-color:#f5f5f7}
+.opt:has(input:checked) span{color:var(--ink)}
+.opt:has(input:checked) small{color:var(--ink-48)}
+.opt:has(input:focus-visible){outline:3px solid var(--primary-dark);outline-offset:2px}
+.opt:has(input[aria-invalid=true]){border-color:var(--err-dark)}
+#audit-form label.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#e8e8ed;margin:14px 0 0}
+.consent input{width:18px;height:18px;flex:none;margin:3px 0 0;accent-color:var(--primary-dark)}
+.consent a{text-decoration:underline}
+.ferr{margin-top:6px;font-size:14px;line-height:1.4;color:var(--err-dark)}
+#audit-form .btn{justify-self:start;margin-top:14px}
+.fstatus{margin-top:8px;padding:12px 16px;border-radius:10px;background:rgba(255,143,143,.12);font-size:15px;line-height:1.45;color:var(--err-dark)}
+.fnote{max-width:560px;margin-top:20px;font-size:14px;color:var(--muted-dark)}
+.fok{max-width:560px;margin-top:28px;padding:36px;display:grid;justify-items:start;gap:10px;background:#2a2a2c;border-radius:22px;color:#fff}
+.fok svg{color:var(--primary-dark)}
+.fok h3{font-size:28px;line-height:1.14}
+.fok p{color:#ccc}
+.fok:focus{outline:none}
+@media (max-width:640px){.sizes{grid-template-columns:1fr}}

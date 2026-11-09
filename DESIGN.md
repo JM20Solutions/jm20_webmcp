@@ -1,36 +1,23 @@
-# DESIGN.md: JM20, landing de auditoría de visibilidad en IA
+# DESIGN.md: JM20 · WebMCP
 
-Modo: Persuade. Idioma: español, frases en minúscula salvo nombres propios (sin Title Case).
+Hereda el sistema de la web principal (`main_website/css/site.css`) y de Noah/Murph: sistema Apple, un único azul de acción. Si algo se contradice con la web principal, manda la web principal.
 
-## Color
-- Primario `#0066cc` (hover/foco `#0071e3`), sobre fondo oscuro `#2997ff`. Coincide con el "20" del logo (`#2997ff`, medido en og-image.png). El "JM" del logo es terracota `#c76b45`, aún sin uso en la página. Fondo del logo: negro (`#000000` a `#090706`).
-- Texto `#1d1d1f` / `#333`; secundario `#6e6e73`; sobre oscuro `#ccc`.
-- Superficies: lienzo `#fff`, pergamino `#f5f5f7`, mosaico oscuro `#272729`, vista del agente `#000`.
-- Error `#ff6b6b` (solo sobre oscuro, siempre acompañado de texto).
+## Tokens (idénticos a la web principal)
+- Tipografía: pila `-apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, system-ui`. Inter 400 y 600 alojada en `/fonts` (los mismos archivos que la web principal). Sin Google Fonts, sin segunda familia.
+- Color: tinta `#1d1d1f`, gris `#6e6e73`, parchment `#f5f5f7`, azul de acción `#0066cc`, azul sobre oscuro `#2997ff`, mosaico oscuro `#1d1d1f`. Sin segundo color de acento.
+- Titulares 600 con tracking negativo: h1 `clamp(36px,5.6vw,68px)` / -.03em; h2 `clamp(30px,4.6vw,52px)` / -.025em; h3 `clamp(24px,3vw,34px)`. Cuerpo 17px / 1,5.
+- Botones: píldora, 600 16px, relleno 12×24; sobre oscuro, azul `#2997ff` con texto `#1d1d1f` (contraste AA). Pulsado: `scale(.97)`.
+- Contenedores: tarjetas 22px, campos 10px, selectores 18px. Sin sombras salvo la del vídeo del hero.
 
-## Color de marca
-- Azul `#2997ff` (ya en uso) y terracota `#c76b45`. La terracota no se usa en elementos interactivos (el sistema admite un solo color de acción). Contraste medido: sobre `#272729` ≈ 4:1 y sobre blanco ≈ 3,7:1, así que solo para texto grande o formas sobre fondos oscuros.
+## Estructura
+Nav translúcida blanca de 52px con logo `jm20-logo.png`, enlaces grises y botón "Contacto"; hamburguesa ≤760px. Hero centrado, el resto alineado a la izquierda. Ritmo de mosaicos: hero oscuro, `#demo` blanco, `#beneficios` oscuro, `#agentes` blanco, `#metodo` parchment, `#ecosistema` blanco, `#audit` oscuro, pie parchment.
 
-## Tipografía
-- Sistema apple-design-analysis: SF Pro Display/Text con Inter de respaldo, titulares en 600, tracking negativo (-0.374px en cuerpo, -0.28px en h1).
-- Cuerpo 17px/1.5; texto secundario 14px mínimo; sobre oscuro, interlineado 1.6 y peso 400.
-
-## Forma y espacio
-- Botones píldora (9999px); contenedores 18px; inputs 44px de alto; objetivos táctiles ≥44px.
-- Mosaicos alternos claro, oscuro, claro, pergamino, claro, oscuro. Relleno vertical 96px (64px en móvil).
-
-## Motivo propio
-- Simulación de chat de IA (burbuja de la persona y burbuja de la IA) en `#demo` y `#agentes`. Sustituye a los vídeos hasta que existan y se reemplaza por ellos con `data-src`. Es el único momento de énfasis; el resto se mantiene sobrio.
-
-## Reglas
-- En la tabla de precios, la columna elegida se pinta en `#1d1d1f` con texto blanco (escritorio).
-- Los vídeos van en `videos/video-1.mp4` y `videos/video-2.mp4`; si el archivo no carga, se queda la simulación.
-- El copy es del cliente: no se reescribe sin permiso expreso.
-- Todas las secciones van centradas, como en el sistema de referencia.
-- Estado seleccionado de los selectores: fondo `#1d1d1f` con texto blanco (button-dark-utility).
-- El tamaño de empresa se elige una sola vez: el selector de `#metodo` y las opciones del formulario están sincronizados.
-- Los vídeos entran con `data-src` (demo, agentes y tarjetas de Noah y Murph). Sin `data-src`, las tarjetas no muestran hueco; la simulación de chat solo existe hasta que haya vídeo.
-- Una explicación por idea: las fases se definen una sola vez (tabla de precios), no por plan.
-- Sin kickers, sin flechas en enlaces, sin mayúsculas sostenidas, sin tarjetas anidadas.
-- Todo error de formulario lleva mensaje en texto junto al campo.
-- Ejemplos ilustrativos se rotulan como tales.
+## Reglas de esta página
+- Una sola etiqueta para la acción principal: "Solicitar auditoría".
+- Selección (tamaño de empresa): relleno `#1d1d1f` con texto blanco sobre claro; relleno `#f5f5f7` con texto tinta sobre oscuro. El selector de precios y el del formulario están sincronizados; "Solicitar auditoría" en la tarjeta marca el tamaño en el formulario.
+- Sin JavaScript, los tres planes se ven apilados. Las fases se explican una sola vez.
+- Todo error de formulario va en texto junto al campo; el envío correcto muestra "Solicitud enviada".
+- Formulario: misma petición que la web principal (tabla `public.leads`, clave anon legada en `apikey` y `Authorization`, columnas `full_name, company, email, phone, website, interest, comments`). El origen queda en `comments` como "(origen: web WebMCP)".
+- WebMCP: `#audit-form` es una herramienta declarativa (`toolname`, `tooldescription`, `toolparamdescription`), sin `toolautosubmit`: la persona revisa, acepta la privacidad y envía.
+- Vídeos: `mcpvideo.mp4` (hero, sin voz; la descripción va en el pie) y `videos/video-2.mp4` (si no existe, queda la simulación).
+- El copy es del cliente. Pendiente de decidir: Title Case en titulares y etiquetas frente a la frase en minúscula de la web principal.

@@ -11,12 +11,11 @@
 <meta property="og:title" content="El sitio web de tu negocio es invisible para los compradores de 2027">
 <meta property="og:description" content="Preparamos tu infraestructura para la era agéntica antes de que tu competencia te deje fuera del mapa.">
 <meta property="og:image" content="https://jm20aisolutions.com/og-image.png">
-<meta name="theme-color" content="#000000">
-<link rel="icon" href="https://jm20aisolutions.com/jm20-logo.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="jm20-logo.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"JM20","url":"https://jm20aisolutions.com/","logo":"https://jm20aisolutions.com/jm20-logo.png","description":"Soluciones de inteligencia artificial y automatización para mejorar el funcionamiento de tu negocio."}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="base.css">
 <link rel="stylesheet" href="demos.css">
 <link rel="stylesheet" href="pricing.css">
@@ -27,35 +26,27 @@
 </head>
 <body>
 
-<header class="global">
-  <div class="wrap">
-    <a href="https://jm20aisolutions.com/" aria-label="JM20"><img src="https://jm20aisolutions.com/jm20-logo.png" alt="JM20"></a>
-    <nav aria-label="Principal">
-      <a href="#demo">Demo</a>
-      <a href="#metodo">Precios</a>
-      <a href="#ecosistema">Productos</a>
-      <a href="#audit">Contacto</a>
-    </nav>
+<nav class="global" aria-label="Principal">
+  <a href="#top"><img src="jm20-logo.png" alt="JM20"></a>
+  <span class="sp"></span>
+  <button id="mnav" class="mn" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="navlinks">
+    <a href="#demo">Demo</a>
+    <a href="#metodo">Precios</a>
+    <a href="#ecosistema">Productos</a>
+    <a class="btn" href="#audit">Contacto</a>
   </div>
-</header>
+</nav>
 
 <main>
-<section class="tile light" id="top">
+<section class="tile dark" id="top">
   <div class="wrap">
     <h1>El futuro de internet ya cambió.</h1>
     <p class="lead">Tus próximos clientes no buscarán tu negocio; le pedirán a una IA que lo encuentre por ellos.</p>
     <p class="lead lead-2">Google ya no es la única puerta de entrada. Si los asistentes de IA no pueden entender tu web, leer tus datos o ejecutar acciones en tu sitio, simplemente eres invisible.</p>
     <div class="ctas">
-      <a class="btn" href="#audit">Descubre si tu sitio está listo para la nueva era</a>
+      <a class="btn" href="#audit">Solicitar auditoría</a>
     </div>
-  </div>
-</section>
-
-<section class="tile dark" id="demo">
-  <div class="wrap">
-    <h2>Dale herramientas a la IA, no un diseño para humanos.</h2>
-    <p class="lead">Los asistentes de IA como: ChatGPT, Claude, Gemini, Perplexity, Copilot no miran tus fotos, tus colores ni el diseño de tu menú: lee datos puros. Si tu web actual está diseñada solo para que la navegue un humano, la IA no la entiende. Y si no la entiende, no te recomendará a tus clientes.</p>
-    <p class="lead lead-2">Nosotros transformamos tu página web tradicional en una plataforma inteligente. Hacemos que tu negocio sea "legible" para que cualquier Inteligencia Artificial pueda entrar, entender lo que vendes y actuar por su usuario.</p>
     <figure class="vid">
       <!-- Pon data-src="video-1.mp4" (opcional data-poster y data-captions con un .vtt) y el vídeo sustituye a la simulación -->
       <div class="player" id="v1" data-src="mcpvideo.mp4" data-poster="" data-captions="">
@@ -72,8 +63,21 @@
       </div>
       <figcaption><strong>Así puede encontrar una IA tu web.</strong> Un cliente pregunta, el agente busca, puede localizar tu negocio y entender qué ofreces sin tener que adivinar.</figcaption>
     </figure>
+  </div>
+</section>
+
+<section class="tile light" id="demo">
+  <div class="wrap">
+    <h2>Dale herramientas a la IA, no un diseño para humanos.</h2>
+    <p class="lead">Los asistentes de IA como: ChatGPT, Claude, Gemini, Perplexity, Copilot no miran tus fotos, tus colores ni el diseño de tu menú: lee datos puros. Si tu web actual está diseñada solo para que la navegue un humano, la IA no la entiende. Y si no la entiende, no te recomendará a tus clientes.</p>
+    <p class="lead lead-2">Nosotros transformamos tu página web tradicional en una plataforma inteligente. Hacemos que tu negocio sea "legible" para que cualquier Inteligencia Artificial pueda entrar, entender lo que vendes y actuar por su usuario.</p>
+  </div>
+</section>
+
+<section class="tile dark" id="beneficios">
+  <div class="wrap">
     <div class="gains">
-      <h3>¿Qué ganará tu negocio al estar adaptado a la IA?</h3>
+      <h2>¿Qué ganará tu negocio al estar adaptado a la IA?</h2>
       <ul>
         <li><strong>Ventas automáticas:</strong> Los asistentes de tus clientes podrán consultar tus precios y stock al instante.</li>
         <li><strong>Reservas sin clics:</strong> La IA podrá comprobar tu disponibilidad y agendar citas directamente en tu sistema.</li>
@@ -84,7 +88,7 @@
       <h3>El tráfico web tradicional está cambiando</h3>
       <p>ChatGPT ya procesa una quinta parte (20%) del volumen de búsquedas de Google, según OpenAI (Fuente: OpenAI / <a href="https://es.wired.com/articulos/openai-asegura-que-chatgpt-ya-representa-una-quinta-parte-de-las-busquedas-de-google" target="_blank" rel="noopener">WIRED</a>). Si tu infraestructura web solo está diseñada para humanos, estás perdiendo al nuevo tipo de cliente: los agentes de IA.</p>
     </div>
-    <div class="ctas"><a class="btn" href="#audit">Adapta tu web a la IA</a></div>
+    <div class="ctas"><a class="btn" href="#audit">Solicitar auditoría</a></div>
   </div>
 </section>
 
@@ -113,44 +117,57 @@
 </section>
 
 <section class="tile sky" id="metodo">
-  <div class="wrap wide">
+  <div class="wrap">
     <h2>Nuestro Enfoque Secuencial: Preparar tu Web para la IA.</h2>
     <p class="lead">Dividimos la transformación agéntica de tu negocio en tres fases claras y medibles, adaptadas al tamaño de tu empresa.</p>
-    <div class="plans">
-    <article class="plan" aria-labelledby="pl-info">
-      <div class="ph"><h3 id="pl-info">Qué incluye cada fase</h3><p>Lo que hacemos en cada paso.</p></div>
-      <div class="pr"><h4>1. Auditoría</h4><span class="sub">Visibilidad</span><p>Revisamos si tu web está preparada para que ChatGPT, Claude y otras IA puedan leerla y entenderla.</p></div>
-      <div class="pr"><h4>2. Optimización</h4><span class="sub">Visibilidad en IA y estructura limpia</span><p>Ordenamos la información de tu negocio para que las IA puedan encontrarla y entenderla, y les indicamos qué pueden usar de tu web.</p></div>
-      <div class="pr"><h4>3. Capacidades agénticas</h4><span class="sub">Herramientas en la web</span><p>Programamos accesos directos con WebMCP, el estándar de Google Chrome, para que un agente de IA pueda reservar o pagar en tu web por su cuenta.</p></div>
-      <div class="pr"><h4>Mantenimiento recurrente</h4><span class="sub">Mensual</span><p>Cada mes revisamos que las IA puedan seguir leyendo tu web y mantenemos tus datos al día en tiempo real.</p></div>
-    </article>
-    <article class="plan" aria-labelledby="pl-p">
-      <div class="ph"><h3 id="pl-p">Pequeño Negocio</h3><p>Barberías, Salones, Cafés</p></div>
+    <div class="phases-head"><h3>Qué incluye cada fase</h3><p>Lo que hacemos en cada paso.</p></div>
+    <ol class="phases">
+      <li><h4>Auditoría</h4><span class="sub">Visibilidad</span><p>Revisamos si tu web está preparada para que ChatGPT, Claude y otras IA puedan leerla y entenderla.</p></li>
+      <li><h4>Optimización</h4><span class="sub">Visibilidad en IA y estructura limpia</span><p>Ordenamos la información de tu negocio para que las IA puedan encontrarla y entenderla, y les indicamos qué pueden usar de tu web.</p></li>
+      <li><h4>Capacidades agénticas</h4><span class="sub">Herramientas en la web</span><p>Programamos accesos directos con WebMCP, el estándar de Google Chrome, para que un agente de IA pueda reservar o pagar en tu web por su cuenta.</p></li>
+      <li class="maint"><h4>Mantenimiento recurrente</h4><span class="sub">Mensual</span><p>Cada mes revisamos que las IA puedan seguir leyendo tu web y mantenemos tus datos al día en tiempo real.</p></li>
+    </ol>
+    <div class="sizepick" role="group" aria-label="Tamaño de tu empresa">
+      <button type="button" data-pick="pequeno" aria-pressed="true">Pequeño Negocio<small>Barberías, Salones, Cafés</small></button>
+      <button type="button" data-pick="mediana" aria-pressed="false">Mediana Empresa<small>Multilocal, Agencias, B2B</small></button>
+      <button type="button" data-pick="gran" aria-pressed="false">Gran Empresa<small>E-commerce, Plataformas</small></button>
+    </div>
+    <div class="board">
+    <article class="plan" data-plan="pequeno" aria-labelledby="pl-p">
+      <h3 id="pl-p">Pequeño Negocio</h3>
       <div class="pr"><span class="k">Auditoría</span><span class="p">99€</span><small>100% descontable si optimizas</small><small>Entrega en 2 días</small></div>
       <div class="pr"><span class="k">Optimización</span><span class="p">399€</span></div>
       <div class="pr"><span class="k">Capacidades agénticas</span><span class="p">699€</span></div>
       <div class="pr"><span class="k">Mantenimiento</span><span class="p">29€<span class="u">/mes</span></span></div>
-      <div class="pc"><a class="btn" href="#audit" data-size="pequeno">Pedir auditoría</a></div>
+      <div class="pc"><a class="btn" href="#audit" data-size="pequeno">Solicitar auditoría</a></div>
     </article>
-    <article class="plan" aria-labelledby="pl-m">
-      <div class="ph"><h3 id="pl-m">Mediana Empresa</h3><p>Multilocal, Agencias, B2B</p></div>
+    <article class="plan" data-plan="mediana" aria-labelledby="pl-m">
+      <h3 id="pl-m">Mediana Empresa</h3>
       <div class="pr"><span class="k">Auditoría</span><span class="p">299€</span><small>Descuento de 100€ si optimizas</small><small>Entrega en 4-5 días</small></div>
       <div class="pr"><span class="k">Optimización</span><span class="p">899€</span></div>
       <div class="pr"><span class="k">Capacidades agénticas</span><span class="p">2.500€ – 4.500€</span></div>
       <div class="pr"><span class="k">Mantenimiento</span><span class="p">79€<span class="u">/mes</span></span></div>
-      <div class="pc"><a class="btn" href="#audit" data-size="mediana">Pedir auditoría</a></div>
+      <div class="pc"><a class="btn" href="#audit" data-size="mediana">Solicitar auditoría</a></div>
     </article>
-    <article class="plan" aria-labelledby="pl-g">
-      <div class="ph"><h3 id="pl-g">Gran Empresa</h3><p>E-commerce, Plataformas</p></div>
+    <article class="plan" data-plan="gran" aria-labelledby="pl-g">
+      <h3 id="pl-g">Gran Empresa</h3>
       <div class="pr"><span class="k">Auditoría</span><span class="p">Consultar</span><small>Desde 1.000€</small><small>Descuento de 200€ si optimizas</small><small>Entrega en 6-8 días</small></div>
       <div class="pr"><span class="k">Optimización</span><span class="p">3.500€</span></div>
       <div class="pr"><span class="k">Capacidades agénticas</span><span class="p"><span class="u">Desde </span>8.000€</span></div>
       <div class="pr"><span class="k">Mantenimiento</span><span class="p"><span class="u">Desde </span>199€<span class="u">/mes</span></span></div>
-      <div class="pc"><a class="btn" href="#audit" data-size="gran">Pedir auditoría</a></div>
+      <div class="pc"><a class="btn" href="#audit" data-size="gran">Solicitar auditoría</a></div>
     </article>
-  </div>
+    </div>
     <div class="fine">
-      <p>No podemos garantizar que ChatGPT, Claude u otras IA te recomienden o te incluyan en sus respuestas. Hay factores que influyen en que una IA te recomiende, como la información clara de tu negocio (qué ofreces, dónde estás, horarios y precios), que tus datos sean coherentes en tu web, Google, Apple Maps y directorios, las reseñas y menciones de tus clientes y de otras webs, un contenido útil que responda lo que tus clientes preguntan de verdad, una web rápida, ordenada y abierta a las IA, y que tu información esté siempre al día (horarios, precios y stock).</p>
+      <p>No podemos garantizar que ChatGPT, Claude u otras IA te recomienden o te incluyan en sus respuestas. Hay factores que influyen en que una IA te recomiende, como:</p>
+      <ul>
+        <li>la información clara de tu negocio (qué ofreces, dónde estás, horarios y precios)</li>
+        <li>que tus datos sean coherentes en tu web, Google, Apple Maps y directorios</li>
+        <li>las reseñas y menciones de tus clientes y de otras webs</li>
+        <li>un contenido útil que responda lo que tus clientes preguntan de verdad</li>
+        <li>una web rápida, ordenada y abierta a las IA</li>
+        <li>que tu información esté siempre al día (horarios, precios y stock)</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -165,32 +182,32 @@
         <div class="cvid" data-src="" data-poster="" data-captions="" hidden></div>
         <h3>Noah — Recepcionista de IA por Voz</h3>
         <p>No pierdas ni una sola reserva más por teléfono. Noah atiende las llamadas perdidas de tu negocio, consulta tu calendario real en la web optimizada y agenda, cambia o cancela citas al momento.</p>
-        <a href="https://noah.jm20aisolutions.com/">Conocer a Noah →</a>
+        <a class="btn" href="https://noah.jm20aisolutions.com/">Conoce a Noah</a>
       </article>
       <article class="card">
         <div class="cvid" data-src="" data-poster="" data-captions="" hidden></div>
         <h3>Murph — Agente de experiencia del cliente</h3>
         <p>Conecta tu base de datos web optimizada con Murph. Automatiza la atención de tu comercio, responde dudas sobre stock en tiempo real y gestiona pedidos de forma segura sin intervención humana.</p>
-        <a href="https://murph.jm20aisolutions.com/">Conocer a Murph →</a>
+        <a class="btn" href="https://murph.jm20aisolutions.com/">Conoce a Murph</a>
       </article>
     </div>
   </div>
 </section>
 
-<section class="tile sky" id="audit">
+<section class="tile dark" id="audit">
   <div class="wrap">
     <h2>Descubre si tu web es visible para la inteligencia artificial.</h2>
-    <!-- Supabase: inserta en public.leads_webmcp con la clave publishable (segura en el navegador). Requiere RLS con política de solo insertar. NUNCA pongas aquí la secret/service key -->
-    <form id="audit-form" data-endpoint="https://wiavnyuchdsfztzhvaua.supabase.co/rest/v1/leads_webmcp" data-apikey="sb_publishable_6CKGYm3F1xTQMNpAyFlWWA_TwaIrGyo" novalidate>
+    <!-- Supabase: misma tabla (public.leads) y misma clave anon que la web principal, que ya funciona. Nunca pongas aquí la secret/service key -->
+    <form id="audit-form" toolname="solicitar_auditoria" tooldescription="Solicita una auditoría de visibilidad en IA para la web de un negocio. Indica contacto, empresa, URL y tamaño de empresa. La persona debe aceptar la política de privacidad y pulsar enviar." data-endpoint="https://wiavnyuchdsfztzhvaua.supabase.co/rest/v1/leads" data-apikey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpYXZueXVjaGRzZnp0emh2YXVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwMDI2ODQsImV4cCI6MjA4NjU3ODY4NH0.dXz7vyFglA_lihma__rbtBT8afZZ1YUJEkAmqpFOL6c" novalidate>
       <div class="row2">
-      <div><label for="nombre">Nombre del Contacto</label><input id="nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre"><p class="ferr" id="e-nombre" hidden></p></div>
-      <div><label for="empresa">Nombre de la Empresa</label><input id="empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="e-empresa"><p class="ferr" id="e-empresa" hidden></p></div>
+      <div><label for="nombre">Nombre del Contacto</label><input id="nombre" name="nombre" type="text" toolparamdescription="Nombre de la persona de contacto" autocomplete="name" required aria-describedby="e-nombre"><p class="ferr" id="e-nombre" hidden></p></div>
+      <div><label for="empresa">Nombre de la Empresa</label><input id="empresa" name="empresa" type="text" toolparamdescription="Nombre de la empresa" autocomplete="organization" required aria-describedby="e-empresa"><p class="ferr" id="e-empresa" hidden></p></div>
       </div>
       <div class="row2">
-      <div><label for="url">URL del Sitio Web</label><input id="url" name="url" type="text" inputmode="url" autocomplete="url" autocapitalize="none" spellcheck="false" placeholder="https://" required aria-describedby="e-url"><p class="ferr" id="e-url" hidden></p></div>
-      <div><label for="email">Email de Contacto</label><input id="email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><p class="ferr" id="e-email" hidden></p></div>
+      <div><label for="url">URL del Sitio Web</label><input id="url" name="url" type="text" toolparamdescription="Dirección web del negocio, por ejemplo minegocio.es" inputmode="url" autocomplete="url" autocapitalize="none" spellcheck="false" placeholder="https://" required aria-describedby="e-url"><p class="ferr" id="e-url" hidden></p></div>
+      <div><label for="email">Email de Contacto</label><input id="email" name="email" type="email" toolparamdescription="Email de contacto donde recibir la auditoría" autocomplete="email" required aria-describedby="e-email"><p class="ferr" id="e-email" hidden></p></div>
       </div>
-      <fieldset aria-describedby="e-tamano">
+      <fieldset aria-describedby="e-tamano" toolparamdescription="Tamaño de la empresa: pequeno (barberías, salones, cafés), mediana (multilocal, agencias, B2B) o gran (e-commerce, plataformas)">
         <legend>Tamaño de tu empresa</legend>
         <div class="sizes">
         <label class="opt"><input type="radio" name="tamano" value="pequeno" required><span>Pequeño Negocio<small>Auditoría 99€, entrega en 2 días</small></span></label>
@@ -200,14 +217,18 @@
         <p class="ferr" id="e-tamano" hidden></p>
       </fieldset>
       <div>
-        <label class="consent" for="gdpr"><input id="gdpr" name="consentimiento" type="checkbox" required aria-describedby="e-consentimiento"><span>He leído y acepto la <a href="https://jm20aisolutions.com/politica-de-privacidad.html">política de privacidad</a>. Consiento el análisis técnico de la URL facilitada para la emisión de la auditoría solicitada.</span></label>
+        <label class="consent" for="gdpr"><input id="gdpr" name="consentimiento" type="checkbox" toolparamdescription="Solo la persona usuaria puede aceptar la política de privacidad; el agente no debe marcarla" required aria-describedby="e-consentimiento"><span>He leído y acepto la <a href="https://jm20aisolutions.com/politica-de-privacidad.html">política de privacidad</a>. Consiento el análisis técnico de la URL facilitada para la emisión de la auditoría solicitada.</span></label>
         <p class="ferr" id="e-consentimiento" hidden></p>
       </div>
       <p class="fstatus" id="fstatus" role="alert" hidden></p>
       <button class="btn" type="submit">Solicitar auditoría</button>
     </form>
     <p class="fnote">Desde 99€ según el tamaño de tu empresa (<a href="#metodo">ver precios</a>).</p>
-    <p class="fok" id="fok" role="status" tabindex="-1" hidden>Hemos recibido tu solicitud. Te contactaremos por email.</p>
+    <div class="fok" id="fok" role="status" tabindex="-1" hidden>
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2.5"/><path d="M14 25l7 7 13-15" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Solicitud enviada</h3>
+      <p>Hemos recibido tu solicitud. Te contactaremos por email.</p>
+    </div>
   </div>
 </section>
 </main>
@@ -222,7 +243,7 @@
   </div>
 </footer>
 
-<div class="dock" id="dock" hidden><a class="btn" href="#audit">Solicitar Auditoría</a></div>
+<div class="dock" id="dock" hidden><a class="btn" href="#audit">Solicitar auditoría</a></div>
 
 <script src="nav.js" defer></script>
 <script src="demos.js" defer></script>

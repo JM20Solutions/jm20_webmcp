@@ -1,4 +1,4 @@
-/* webmcp_form.js — formulario de auditoría JM20 → Supabase (public.leads_webmcp) */
+/* webmcp_form.js — formulario de auditoría JM20 → Supabase (public.leads, igual que la web principal) */
 (function(){
   var f=document.getElementById('audit-form'),st=document.getElementById('fstatus'),done=document.getElementById('fok'),b=f.querySelector('button'),label=b.textContent;
   var names=['nombre','empresa','url','email','tamano','consentimiento'];
@@ -16,7 +16,7 @@
     fields(n).forEach(function(i){i.setAttribute('aria-invalid',String(!ok))});
     return ok;
   }
-  function fail(m){st.textContent=m;st.hidden=false;b.disabled=false;b.textContent=label}
+  function fail(m){st.textContent=m;st.hidden=false;b.disabled=false;b.textContent=label;st.scrollIntoView({block:'center'})}
   f.addEventListener('input',function(e){var n=e.target.name;if(n&&e.target.getAttribute('aria-invalid')==='true')check(n)});
   f.addEventListener('submit',function(e){
     e.preventDefault();st.hidden=true;
@@ -27,15 +27,20 @@
     var ep=f.dataset.endpoint;
     if(!ep){console.warn('audit-form: falta data-endpoint');fail('No hemos podido enviar tu solicitud ahora mismo. Inténtalo de nuevo en unos minutos.');return}
     var key=f.dataset.apikey;
-    var body={nombre:f.elements.nombre.value.trim(),empresa:f.elements.empresa.value.trim(),url:f.elements.url.value,email:f.elements.email.value.trim(),tamano:f.querySelector('input[name=tamano]:checked').value,consentimiento:true};
-    /* Con claves sb_publishable_* basta el header apikey (no son JWT, no uses Authorization: Bearer) */
-    var h={'Content-Type':'application/json',Prefer:'return=minimal'};if(key)h.apikey=key;
-    fetch(ep,{method:'POST',headers:h,body:JSON.stringify(body)})
+    var tam={pequeno:'Pequeño negocio',mediana:'Mediana empresa',gran:'Gran empresa'}[f.querySelector('input[name=tamano]:checked').value];
+    var url=f.elements.url.value;
+    /* Mismo formato que la web principal (tabla leads, columnas full_name/company/email/phone/website/interest/comments) */
+    var body={full_name:f.elements.nombre.value.trim(),company:f.elements.empresa.value.trim(),email:f.elements.email.value.trim(),phone:'',website:url,interest:'Discovery',comments:('Auditoría de visibilidad en IA. Tamaño: '+tam+'. Web: '+url+'. Acepta la política de privacidad. (origen: web WebMCP)').slice(0,1900)};
+    var h={'Content-Type':'application/json',Prefer:'return=minimal',apikey:key,Authorization:'Bearer '+key};
+    var ctl=new AbortController(),to=setTimeout(function(){ctl.abort()},15000);
+    fetch(ep,{method:'POST',headers:h,body:JSON.stringify(body),signal:ctl.signal})
       .then(function(r){
-        if(r.ok){f.hidden=true;done.hidden=false;done.focus();return}
+        clearTimeout(to);
+        if(r.ok){f.hidden=true;done.hidden=false;done.focus();done.scrollIntoView({block:'center'});return}
         return r.text().then(function(t){console.error('audit-form: Supabase respondió',r.status,t);throw r.status});
       })
       .catch(function(s){
+        clearTimeout(to);
         if(typeof s!=='number')console.error('audit-form: error de red/CORS',s);
         fail(typeof s==='number'?'Tu solicitud no se ha podido registrar. Inténtalo de nuevo en unos minutos.':'No hemos podido enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.');
       });
