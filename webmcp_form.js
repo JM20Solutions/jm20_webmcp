@@ -1,4 +1,4 @@
-/* webmcp_form.js — formulario de auditoría JM20 → Supabase (public.leads, igual que la web principal) */
+/* webmcp_form.js — formulario de auditoría JM20 → Supabase (public.leads_webmcp) */
 (function(){
   var f=document.getElementById('audit-form'),st=document.getElementById('fstatus'),done=document.getElementById('fok'),b=f.querySelector('button'),label=b.textContent;
   var names=['nombre','empresa','url','email','tamano','consentimiento'];
@@ -27,10 +27,8 @@
     var ep=f.dataset.endpoint;
     if(!ep){console.warn('audit-form: falta data-endpoint');fail('No hemos podido enviar tu solicitud ahora mismo. Inténtalo de nuevo en unos minutos.');return}
     var key=f.dataset.apikey;
-    var tam={pequeno:'Pequeño negocio',mediana:'Mediana empresa',gran:'Gran empresa'}[f.querySelector('input[name=tamano]:checked').value];
     var url=f.elements.url.value;
-    /* Mismo formato que la web principal (tabla leads, columnas full_name/company/email/phone/website/interest/comments) */
-    var body={full_name:f.elements.nombre.value.trim(),company:f.elements.empresa.value.trim(),email:f.elements.email.value.trim(),phone:'',website:url,interest:'Discovery',comments:('Auditoría de visibilidad en IA. Tamaño: '+tam+'. Web: '+url+'. Acepta la política de privacidad. (origen: web WebMCP)').slice(0,1900)};
+    var body={nombre:f.elements.nombre.value.trim(),empresa:f.elements.empresa.value.trim(),url:url,email:f.elements.email.value.trim(),tamano:f.querySelector('input[name=tamano]:checked').value,consentimiento:true};
     var h={'Content-Type':'application/json',Prefer:'return=minimal',apikey:key,Authorization:'Bearer '+key};
     var ctl=new AbortController(),to=setTimeout(function(){ctl.abort()},15000);
     fetch(ep,{method:'POST',headers:h,body:JSON.stringify(body),signal:ctl.signal})

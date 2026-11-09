@@ -197,8 +197,8 @@
 <section class="tile dark" id="audit">
   <div class="wrap">
     <h2>Descubre si tu web es visible para la inteligencia artificial.</h2>
-    <!-- Supabase: misma tabla (public.leads) y misma clave anon que la web principal, que ya funciona. Nunca pongas aquí la secret/service key -->
-    <form id="audit-form" toolname="solicitar_auditoria" tooldescription="Solicita una auditoría de visibilidad en IA para la web de un negocio. Indica contacto, empresa, URL y tamaño de empresa. La persona debe aceptar la política de privacidad y pulsar enviar." data-endpoint="https://wiavnyuchdsfztzhvaua.supabase.co/rest/v1/leads" data-apikey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpYXZueXVjaGRzZnp0emh2YXVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwMDI2ODQsImV4cCI6MjA4NjU3ODY4NH0.dXz7vyFglA_lihma__rbtBT8afZZ1YUJEkAmqpFOL6c" novalidate>
+    <!-- Supabase: tabla public.leads_webmcp, con la misma clave anon y cabeceras que la web principal. Nunca pongas aquí la secret/service key -->
+    <form id="audit-form" toolname="solicitar_auditoria" tooldescription="Solicita una auditoría de visibilidad en IA para la web de un negocio. Indica contacto, empresa, URL y tamaño de empresa. La persona debe aceptar la política de privacidad y pulsar enviar." data-endpoint="https://wiavnyuchdsfztzhvaua.supabase.co/rest/v1/leads_webmcp" data-apikey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpYXZueXVjaGRzZnp0emh2YXVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwMDI2ODQsImV4cCI6MjA4NjU3ODY4NH0.dXz7vyFglA_lihma__rbtBT8afZZ1YUJEkAmqpFOL6c" novalidate>
       <div class="row2">
       <div><label for="nombre">Nombre del Contacto</label><input id="nombre" name="nombre" type="text" toolparamdescription="Nombre de la persona de contacto" autocomplete="name" required aria-describedby="e-nombre"><p class="ferr" id="e-nombre" hidden></p></div>
       <div><label for="empresa">Nombre de la Empresa</label><input id="empresa" name="empresa" type="text" toolparamdescription="Nombre de la empresa" autocomplete="organization" required aria-describedby="e-empresa"><p class="ferr" id="e-empresa" hidden></p></div>
