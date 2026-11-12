@@ -1,0 +1,51 @@
+# AI Ready by JM20 AI Solutions
+
+> Preparamos la web de tu negocio para que ChatGPT, Claude y otros asistentes de IA puedan encontrarla, entender lo que ofreces y, si lo necesitas, reservar o pagar por tus clientes.
+
+AI Ready es un servicio de [JM20 AI Solutions](https://jm20aisolutions.com/), empresa de la UE que desarrolla agentes de IA para negocios. Idioma de la web: español.
+
+## Qué hacemos
+
+1. Auditoría: revisamos si tu web está preparada para que las IA puedan leerla y entenderla.
+2. Optimización: ordenamos la información de tu negocio para que las IA puedan encontrarla y entenderla, e indicamos qué pueden usar de tu web.
+3. Acciones para la IA: programamos accesos directos con WebMCP (una propuesta de estándar web con soporte inicial en Google Chrome) para que un agente pueda reservar o pagar en tu web por su cuenta.
+4. Mantenimiento recurrente: cada mes revisamos que las IA puedan seguir leyendo tu web y mantenemos tus datos al día.
+
+## Precios (en euros)
+
+Pequeño negocio (barberías, salones, cafés):
+- Auditoría: 99€, entrega en 2 días. 100% descontable si contratas la optimización.
+- Optimización: 399€
+- Acciones para la IA: 699€
+- Mantenimiento: 29€/mes
+
+Mediana empresa (multilocal, agencias, B2B):
+- Auditoría: 299€, entrega en 4-5 días. Descuento de 100€ si contratas la optimización.
+- Optimización: 899€
+- Acciones para la IA: de 2.500€ a 4.500€ según el alcance
+- Mantenimiento: 79€/mes
+
+Gran empresa (e-commerce, plataformas):
+- Auditoría: desde 1.000€, entrega en 6-8 días. Descuento de 200€ si contratas la optimización. Consulta el precio final.
+- Optimización: 3.500€
+- Acciones para la IA: desde 8.000€
+- Mantenimiento: desde 199€/mes
+
+## Limitaciones
+
+No se puede garantizar que ChatGPT, Claude u otras IA recomienden o incluyan un negocio en sus respuestas. Influyen factores como la claridad de la información del negocio, la coherencia de los datos entre web, Google, Apple Maps y directorios, las reseñas y menciones, un contenido útil, una web rápida y abierta a las IA, y que la información esté siempre al día.
+
+## Enlaces
+
+- [Web de AI Ready](https://aiready.jm20aisolutions.com/)
+- [Solicitar auditoría](https://aiready.jm20aisolutions.com/#audit)
+- [Ejemplo de auditoría](https://aiready.jm20aisolutions.com/audit-ejemplo.html)
+- [Términos de servicio](https://aiready.jm20aisolutions.com/terminos-de-servicio.html)
+- [Política de privacidad](https://aiready.jm20aisolutions.com/politica-de-privacidad.html)
+- [JM20 AI Solutions](https://jm20aisolutions.com/)
+- Contacto: contact@jm20aisolutions.com
+
+## Productos relacionados
+
+- [Noah](https://noah.jm20aisolutions.com/): recepcionista de IA por voz que agenda, cambia y cancela citas.
+- [Murph](https://murph.jm20aisolutions.com/): agente de experiencia del cliente para comercios.
