@@ -10,14 +10,16 @@ Hereda el sistema de la web principal (`main_website/css/site.css`) y de Noah/Mu
 - Contenedores: tarjetas 22px, campos 10px, selectores 18px. Sin sombras salvo la del vídeo del hero.
 
 ## Estructura
-Nav translúcida blanca de 52px con logo `jm20-logo.png`, enlaces grises y botón "Contacto"; hamburguesa ≤760px. Hero centrado, el resto alineado a la izquierda. Ritmo de mosaicos: hero oscuro, `#demo` blanco, `#beneficios` oscuro, `#agentes` blanco, `#metodo` parchment, `#ecosistema` blanco, `#audit` oscuro, pie parchment.
+Nav translúcida blanca de 52px con logo `jm20-logo.png`, enlaces grises y botón "Contacto"; hamburguesa ≤760px. Hero centrado, el resto alineado a la izquierda. Ritmo de mosaicos: hero oscuro, `#demo` blanco, `#beneficios` oscuro, `#agentes` blanco, `#metodo` parchment, `#audit` oscuro, `#ecosistema` blanco, pie parchment. Los productos van después del formulario para que no desvíen de la acción principal.
 
 ## Reglas de esta página
 - Una sola etiqueta para la acción principal: "Solicitar auditoría".
 - Selección (tamaño de empresa): relleno `#1d1d1f` con texto blanco sobre claro; relleno `#f5f5f7` con texto tinta sobre oscuro. El selector de precios y el del formulario están sincronizados; "Solicitar auditoría" en la tarjeta marca el tamaño en el formulario.
-- Sin JavaScript, los tres planes se ven apilados. Las fases se explican una sola vez.
+- Sin JavaScript, los tres planes se ven apilados. Los cuatro pasos se explican una sola vez (tres son de pago único y el cuarto es mantenimiento mensual).
+- Sin jerga en el copy: nada de "agéntica"; la tercera fase se llama "Acciones para la IA". WebMCP se describe como propuesta de estándar con soporte inicial en Chrome (revisar si cambia su estado).
+- Bajo el formulario, el bloque "Qué pasa después" resume el proceso y los plazos por tamaño de empresa.
 - Todo error de formulario va en texto junto al campo; el envío correcto muestra "Solicitud enviada".
 - Formulario: misma petición que la web principal (tabla `public.leads`, clave anon legada en `apikey` y `Authorization`, columnas `full_name, company, email, phone, website, interest, comments`). El origen queda en `comments` como "(origen: web WebMCP)".
 - WebMCP: `#audit-form` es una herramienta declarativa (`toolname`, `tooldescription`, `toolparamdescription`), sin `toolautosubmit`: la persona revisa, acepta la privacidad y envía.
 - Vídeos: `mcpvideo.mp4` (hero, sin voz; la descripción va en el pie) y `videos/video-2.mp4` (si no existe, queda la simulación).
-- El copy es del cliente. Pendiente de decidir: Title Case en titulares y etiquetas frente a la frase en minúscula de la web principal.
+- El copy es del cliente. Decidido: frase en minúscula (sentence case) en titulares y etiquetas, como la web principal.
