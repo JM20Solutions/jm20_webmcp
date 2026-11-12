@@ -1,1 +1,12 @@
-
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "aiready-info",
+      "type": "skill-md",
+      "description": "Explain AI Ready by JM20 AI Solutions, a service that prepares business websites so AI assistants can find and use them, and help visitors find pricing, the sample audit and how to request an audit.",
+      "url": "https://aiready.jm20aisolutions.com/.well-known/agent-skills/aiready-info/SKILL.md",
+      "digest": "sha256:fea65f46263fea35c39acd4c4315c95520eb24d3a536a513b5a125b898c6a1db"
+    }
+  ]
+}
