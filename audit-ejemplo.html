@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ejemplo de auditoría de visibilidad en IA | JM20</title>
+<meta name="description" content="Así es una auditoría de JM20: qué revisamos en tu web para que ChatGPT, Claude y otras IA te encuentren, y cómo te lo contamos. Ejemplo con un negocio ficticio.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="jm20-logo.png">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="extras.css">
+</head>
+<body>
+
+<nav class="global" aria-label="Principal">
+  <a href="index.html"><img src="jm20-logo.png" alt="JM20"></a>
+  <span class="sp"></span>
+  <div class="navlinks">
+    <a href="index.html#metodo">Precios</a>
+    <a class="btn" href="index.html#audit">Solicitar auditoría</a>
+  </div>
+</nav>
+
+<main id="main">
+  <article class="legal">
+    <p class="eyebrow">Ejemplo ilustrativo</p>
+    <h1>Auditoría de visibilidad en IA</h1>
+    <p class="lead">Este es el formato de una auditoría de JM20 para un pequeño negocio. Te enseñamos qué revisamos y cómo te lo contamos.</p>
+    <p class="sample-note"><strong>Negocio ficticio.</strong> La barbería, la web, los datos y los resultados de esta página son inventados y no corresponden a ningún cliente real. Tu informe se adapta a tu web.</p>
+
+    <dl class="meta">
+      <dt>Negocio</dt><dd>Barbería Ejemplo (ficticia)</dd>
+      <dt>Web</dt><dd>barberiaejemplo.es (ficticia)</dd>
+      <dt>Tamaño</dt><dd>Pequeño negocio</dd>
+      <dt>Qué revisamos</dt><dd>Si ChatGPT, Claude y otras IA pueden leer tu web, entender lo que ofreces y actuar en ella</dd>
+    </dl>
+
+    <h2>Resumen</h2>
+    <p class="summary">Una IA puede llegar a la web de la barbería, pero no puede leer sus precios con fiabilidad ni reservar una cita. De 6 áreas revisadas, 1 está correcta, 3 son mejorables y 2 son críticas.</p>
+    <div class="tally" aria-label="Recuento por estado">
+      <span class="chip ok">1 correcta</span>
+      <span class="chip mid">3 mejorables</span>
+      <span class="chip bad">2 críticas</span>
+    </div>
+
+    <h2>Resultados por área</h2>
+    <div class="areas">
+
+      <section class="area" aria-labelledby="a1">
+        <div class="area-head"><h3 id="a1">1. Acceso para IA</h3><span class="chip ok">Correcta</span></div>
+        <dl>
+          <div><dt>Qué vimos</dt><dd>El archivo <code>robots.txt</code> no bloquea a los rastreadores de IA y la web responde sin necesidad de iniciar sesión.</dd></div>
+          <div><dt>Qué haríamos</dt><dd>Nada ahora. Lo revisaríamos cada mes dentro del mantenimiento.</dd></div>
+        </dl>
+      </section>
+
+      <section class="area" aria-labelledby="a2">
+        <div class="area-head"><h3 id="a2">2. Datos del negocio legibles</h3><span class="chip bad">Crítica</span></div>
+        <dl>
+          <div><dt>Qué vimos</dt><dd>Los horarios están dentro de una imagen y la lista de precios es un PDF escaneado.</dd></div>
+          <div><dt>Por qué importa</dt><dd>Una IA no siempre puede leer texto dentro de imágenes o PDF escaneados, y no es fiable que responda con ello. Si no puede leer tus precios u horarios, no los usará al recomendarte.</dd></div>
+          <div><dt>Qué haríamos</dt><dd>Pasar horarios, servicios y precios a texto en la propia página.</dd></div>
+        </dl>
+      </section>
+
+      <section class="area" aria-labelledby="a3">
+        <div class="area-head"><h3 id="a3">3. Datos estructurados</h3><span class="chip mid">Mejorable</span></div>
+        <dl>
+          <div><dt>Qué vimos</dt><dd>La web declara el nombre del negocio, pero no sus horarios, servicios ni dirección en un formato que las máquinas entiendan (schema.org).</dd></div>
+          <div><dt>Por qué importa</dt><dd>Los datos estructurados dicen a una IA, sin adivinar, qué eres, dónde estás y qué ofreces.</dd></div>
+          <div><dt>Qué haríamos</dt><dd>Añadir la ficha completa del negocio local con horarios, servicios y contacto.</dd></div>
+        </dl>
+      </section>
+
+      <section class="area" aria-labelledby="a4">
+        <div class="area-head"><h3 id="a4">4. Coherencia de datos</h3><span class="chip mid">Mejorable</span></div>
+        <dl>
+          <div><dt>Qué vimos</dt><dd>El teléfono de la web no coincide con el de Apple Maps, y el horario del sábado es distinto en Google y en la web.</dd></div>
+          <div><dt>Por qué importa</dt><dd>Cuando las fuentes se contradicen, una IA puede dudar y recomendar a otro negocio con datos más claros.</dd></div>
+          <div><dt>Qué haríamos</dt><dd>Unificar teléfono, dirección y horarios en la web, Google, Apple Maps y los directorios.</dd></div>
+        </dl>
+      </section>
+
+      <section class="area" aria-labelledby="a5">
+        <div class="area-head"><h3 id="a5">5. Estructura y velocidad</h3><span class="chip mid">Mejorable</span></div>
+        <dl>
+          <div><dt>Qué vimos</dt><dd>Varias páginas repiten el mismo título y la página principal tarda demasiado en cargar en móvil.</dd></div>
+          <div><dt>Por qué importa</dt><dd>Una web ordenada y rápida es más fácil de leer para una IA y para tus clientes.</dd></div>
+          <div><dt>Qué haríamos</dt><dd>Dar a cada página un título propio y ligero, y reducir el peso de las imágenes.</dd></div>
+        </dl>
+      </section>
+
+      <section class="area" aria-labelledby="a6">
+        <div class="area-head"><h3 id="a6">6. Acciones para la IA</h3><span class="chip bad">Crítica</span></div>
+        <dl>
+          <div><dt>Qué vimos</dt><dd>Reservar una cita solo es posible por teléfono o con un formulario que una IA no puede completar por su cuenta.</dd></div>
+          <div><dt>Por qué importa</dt><dd>Un asistente de IA puede encontrar la barbería, pero no cerrar la reserva por el cliente.</dd></div>
+          <div><dt>Qué haríamos</dt><dd>Añadir una acción de reserva con WebMCP para que un agente pueda comprobar disponibilidad y reservar, con confirmación del cliente.</dd></div>
+        </dl>
+      </section>
+
+    </div>
+
+    <h2>Siguiente paso recomendado</h2>
+    <ol class="next-steps">
+      <li><strong>Optimización:</strong> corregir las áreas 2 a 5 para que la IA lea datos claros y coherentes.</li>
+      <li><strong>Acciones para la IA:</strong> añadir la reserva directa (área 6).</li>
+      <li><strong>Mantenimiento mensual:</strong> comprobar cada mes que las IA siguen pudiendo leer la web y que los datos están al día.</li>
+    </ol>
+
+    <p class="updated disclaimer">No podemos garantizar que ChatGPT, Claude u otras IA te recomienden o te incluyan en sus respuestas. Esta auditoría mejora las condiciones para que puedan hacerlo.</p>
+
+    <div class="cta-row ctas">
+      <a class="btn" href="index.html#audit">Solicitar auditoría</a>
+      <a class="alt" href="index.html#metodo">Ver precios y pasos</a>
+    </div>
+  </article>
+</main>
+
+<footer id="foot">
+  <div class="wrap">
+    <img class="flogo" src="jm20-logo.png" alt="JM20 AI Solutions">
+    <p>WebMCP es un servicio de JM20 AI Solutions</p>
+    <p class="copy">© 2026 JM20 AI Solutions. Todos los derechos reservados.</p>
+    <nav aria-label="Legal">
+      <a href="index.html">Volver a WebMCP</a>
+      <a href="terminos-de-servicio.html">Términos de servicio</a>
+      <a href="politica-de-privacidad.html">Política de privacidad</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

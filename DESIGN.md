@@ -10,7 +10,7 @@ Hereda el sistema de la web principal (`main_website/css/site.css`) y de Noah/Mu
 - Contenedores: tarjetas 22px, campos 10px, selectores 18px. Sin sombras salvo la del vídeo del hero.
 
 ## Estructura
-Nav translúcida blanca de 52px con logo `jm20-logo.png`, enlaces grises y botón "Contacto"; hamburguesa ≤760px. Hero centrado, el resto alineado a la izquierda. Ritmo de mosaicos: hero oscuro, `#demo` blanco, `#beneficios` oscuro, `#agentes` blanco, `#metodo` parchment, `#audit` oscuro, `#ecosistema` blanco, pie parchment. Los productos van después del formulario para que no desvíen de la acción principal.
+Nav translúcida blanca de 52px con logo `jm20-logo.png`, enlaces grises y botón "Contacto"; hamburguesa ≤760px. Hero centrado, el resto alineado a la izquierda. Ritmo de mosaicos: hero oscuro, `#demo` blanco, `#beneficios` oscuro, `#agentes` blanco, `#metodo` parchment, `#quienes` blanco, `#audit` oscuro, `#ecosistema` blanco, pie parchment. Los productos van después del formulario para que no desvíen de la acción principal.
 
 ## Reglas de esta página
 - Una sola etiqueta para la acción principal: "Solicitar auditoría".
@@ -24,3 +24,7 @@ Nav translúcida blanca de 52px con logo `jm20-logo.png`, enlaces grises y botó
 - WebMCP: `#audit-form` es una herramienta declarativa (`toolname`, `tooldescription`, `toolparamdescription`), sin `toolautosubmit`: la persona revisa, acepta la privacidad y envía.
 - Vídeos: `mcpvideo.mp4` (hero) y `video-2.mp4`, ambos en la raíz, con póster (`poster-1.jpg`, `poster-2.jpg`, fotograma a los 3 s). Si un vídeo no carga, queda la simulación. Si algún vídeo lleva voz, hay que añadir subtítulos (`data-captions` con un .vtt).
 - El copy es del cliente. Decidido: frase en minúscula (sentence case) en titulares y etiquetas, como la web principal.
+
+- Confianza: `#quienes` (solo datos que la empresa ya publica en su web; sin nombres ni cifras inventados) va justo antes del formulario. `audit-ejemplo.html` es un ejemplo con un negocio ficticio, marcado como ejemplo y con `noindex` para que los datos inventados no se confundan con un negocio real; hay que mantenerlo alineado con lo que de verdad entrega una auditoría.
+- Contacto humano: `contact@jm20aisolutions.com` bajo el formulario (correo de contacto de la empresa).
+- Estilos nuevos en `extras.css` (quiénes somos, contacto, ejemplo de auditoría).
