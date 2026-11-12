@@ -4,15 +4,124 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ejemplo de auditoría de visibilidad en IA | JM20</title>
-<meta name="description" content="Así es una auditoría de JM20: qué revisamos en tu web para que ChatGPT, Claude y otras IA te encuentren, y cómo te lo contamos. Ejemplo con un negocio ficticio.">
+<meta name="description" content="Ejemplo ficticio de una auditoría de visibilidad en IA de JM20: análisis técnico, evidencias, pruebas simuladas y plan de acción.">
 <meta name="robots" content="noindex, follow">
 <link rel="icon" href="jm20-logo.png">
-<link rel="stylesheet" href="base.css">
-<link rel="stylesheet" href="legal.css">
-<link rel="stylesheet" href="extras.css">
+<style>
+:root{
+  --ink:#17212b;--muted:#64717e;--line:#e1e6eb;--paper:#fff;--wash:#f5f7f9;
+  --navy:#14283d;--blue:#315d80;--green:#24734f;--green-bg:#eaf5ef;
+  --amber:#946016;--amber-bg:#fff4df;--red:#a33b37;--red-bg:#fbeceb;
+  --shadow:0 12px 34px rgba(22,39,55,.07);--radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f2f4f6;color:var(--ink);font:15px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit}
+.global{height:72px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 max(24px,calc((100% - 1120px)/2));gap:24px}
+.global img{width:104px;height:auto;object-fit:contain}
+.sp{flex:1}
+.navlinks{display:flex;align-items:center;gap:20px}
+.navlinks a,.cta-row a{font-size:13px;font-weight:650;text-decoration:none}
+.btn{background:var(--navy);color:#fff!important;padding:11px 17px;border-radius:7px}
+main{max-width:1000px;margin:42px auto 64px;padding:0 22px}
+.report{background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.report-top{padding:42px 52px 32px;background:linear-gradient(135deg,#14283d,#234663);color:#fff}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:750;color:#b9cddd;margin:0 0 12px}
+h1{font-size:clamp(30px,5vw,43px);line-height:1.12;letter-spacing:-.035em;margin:0 0 13px}
+.lead{font-size:17px;line-height:1.55;color:#e1eaf1;max-width:720px;margin:0}
+.sample-note{margin:24px 0 0;padding:13px 15px;border:1px solid rgba(255,255,255,.24);border-radius:9px;background:rgba(255,255,255,.08);font-size:12px;color:#f0f4f7}
+.sample-note strong{color:#fff}
+.report-body{padding:34px 52px 48px}
+.meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px 24px;margin:0 0 34px;padding:0 0 28px;border-bottom:1px solid var(--line)}
+.meta div{min-width:0}
+.meta dt,.small-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:750;color:var(--muted);margin-bottom:4px}
+.meta dd{margin:0;font-size:13px;font-weight:650;overflow-wrap:anywhere}
+section{scroll-margin-top:20px}
+h2{font-size:22px;letter-spacing:-.02em;line-height:1.25;margin:38px 0 15px}
+h3{font-size:16px;line-height:1.35;margin:0}
+p{margin:0 0 12px}
+.muted{color:var(--muted)}
+.summary{font-size:15px;max-width:800px}
+.score-panel{display:grid;grid-template-columns:210px 1fr;gap:28px;padding:23px;border:1px solid var(--line);border-radius:var(--radius);background:#fbfcfd;margin:22px 0 15px}
+.score-number{font-size:48px;line-height:1;font-weight:800;letter-spacing:-.05em;color:var(--navy)}
+.score-number small{font-size:16px;color:var(--muted);font-weight:600;letter-spacing:0}
+.score-status{display:inline-block;margin-top:10px;background:var(--amber-bg);color:var(--amber);padding:5px 9px;border-radius:5px;font-size:11px;font-weight:750}
+.score-details{align-self:center}
+.bar{height:9px;background:#e8edf1;border-radius:20px;overflow:hidden;margin:10px 0 15px}
+.bar span{display:block;width:42%;height:100%;background:#c58a32;border-radius:20px}
+.tally{display:flex;gap:9px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:5px;padding:5px 9px;font-size:11px;font-weight:750;white-space:nowrap}
+.ok{color:var(--green);background:var(--green-bg)}
+.mid{color:var(--amber);background:var(--amber-bg)}
+.bad{color:var(--red);background:var(--red-bg)}
+.note{padding:14px 16px;background:#f1f5f8;border-left:3px solid #8096a8;border-radius:0 8px 8px 0;font-size:12px;color:#4f5d69;margin:17px 0}
+.method-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.method{padding:15px;border:1px solid var(--line);border-radius:10px}
+.method strong{display:block;font-size:13px;margin-bottom:4px}
+.method p{font-size:12px;color:var(--muted);margin:0}
+.area-list{display:grid;gap:14px}
+.area{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.area-head{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:17px 19px;background:#fbfcfd;border-bottom:1px solid var(--line)}
+.area-head .left{display:flex;align-items:center;gap:11px}
+.num{width:29px;height:29px;border-radius:7px;background:#eaf0f4;color:var(--navy);display:grid;place-items:center;font-size:12px;font-weight:800;flex:none}
+.area-content{padding:17px 19px 19px}
+.area-content dl{display:grid;grid-template-columns:1fr;gap:13px;margin:0}
+.area-content dl div{display:grid;grid-template-columns:145px 1fr;gap:15px}
+.area-content dt{font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:750;color:var(--muted)}
+.area-content dd{margin:0;font-size:13px}
+.area-content ul{margin:6px 0 0;padding-left:18px}
+.area-content li{margin:3px 0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:#f0f3f5;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}
+.finding-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid #edf0f2;font-size:11px;color:var(--muted)}
+.finding-meta strong{color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:15px 0}
+th{text-align:left;background:#f4f6f8;color:#53616e;font-size:10px;letter-spacing:.07em;text-transform:uppercase}
+th,td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+td:last-child,th:last-child{text-align:left}
+.result{font-weight:750}
+.test-intro{font-size:13px;color:var(--muted);max-width:800px}
+.priority-list{counter-reset:priority;display:grid;gap:10px}
+.priority{counter-increment:priority;display:grid;grid-template-columns:34px 1fr auto;gap:13px;align-items:start;padding:15px;border:1px solid var(--line);border-radius:10px}
+.priority:before{content:counter(priority);width:28px;height:28px;border-radius:7px;background:#eaf0f4;color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:12px}
+.priority h3{font-size:14px;margin:1px 0 4px}
+.priority p{font-size:12px;color:var(--muted);margin:0}
+.estimate{font-size:11px;font-weight:750;color:var(--muted);white-space:nowrap}
+.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.phase{padding:15px;background:var(--wash);border-radius:9px}
+.phase b{display:block;font-size:12px;margin-bottom:5px}
+.phase p{font-size:11px;color:var(--muted);margin:0}
+.deliverables{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.deliverable{padding:12px 14px;border:1px solid var(--line);border-radius:8px;font-size:12px}
+.deliverable:before{content:"✓";color:var(--green);font-weight:800;margin-right:9px}
+.disclaimer{margin-top:30px;padding:15px 17px;border:1px solid #eadfc9;background:#fffaf0;border-radius:9px;font-size:12px;color:#68552f}
+.cta-row{display:flex;gap:12px;align-items:center;margin-top:28px;padding-top:23px;border-top:1px solid var(--line)}
+.cta-row .alt{color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+footer{padding:25px 22px 38px;text-align:center;color:var(--muted);font-size:11px}
+footer img{width:90px;margin-bottom:5px}
+footer p{margin:5px}
+footer nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:12px}
+footer a{text-decoration:none}
+@media(max-width:700px){
+ .global{height:62px;padding:0 18px}.navlinks{gap:12px}.navlinks a{font-size:11px}.navlinks a:first-child{display:none}
+ main{margin:18px auto 35px;padding:0 10px}.report-top{padding:30px 23px 25px}.report-body{padding:25px 22px 32px}
+ .meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ .score-panel{grid-template-columns:1fr;gap:14px}.score-number{font-size:42px}
+ .method-grid,.roadmap,.deliverables{grid-template-columns:1fr}
+ .area-content dl div{grid-template-columns:1fr;gap:4px}
+ .area-head{align-items:flex-start}.area-head h3{font-size:14px}
+ .priority{grid-template-columns:30px 1fr}.estimate{grid-column:2}
+ table{display:block;overflow-x:auto;white-space:normal}
+}
+@media print{
+ body{background:#fff}.global,footer,.cta-row{display:none!important}
+ main{max-width:none;margin:0;padding:0}.report{border:0;box-shadow:none;border-radius:0}
+ .report-top{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .area,.priority,.method,.phase{break-inside:avoid}
+}
+</style>
 </head>
 <body>
-
 <nav class="global" aria-label="Principal">
   <a href="index.html"><img src="jm20-logo.png" alt="JM20"></a>
   <span class="sp"></span>
@@ -23,113 +132,215 @@
 </nav>
 
 <main id="main">
-  <article class="legal">
-    <p class="eyebrow">Ejemplo ilustrativo</p>
+<article class="report">
+  <header class="report-top">
+    <p class="eyebrow">JM20 AI Solutions · Informe de ejemplo</p>
     <h1>Auditoría de visibilidad en IA</h1>
-    <p class="lead">Este es el formato de una auditoría de JM20 para un pequeño negocio. Te enseñamos qué revisamos y cómo te lo contamos.</p>
-    <p class="sample-note"><strong>Negocio ficticio.</strong> La barbería, la web, los datos y los resultados de esta página son inventados y no corresponden a ningún cliente real. Tu informe se adapta a tu web.</p>
+    <p class="lead">Evaluación de la capacidad de una web para ser encontrada, interpretada y utilizada por asistentes y agentes de inteligencia artificial.</p>
+    <p class="sample-note"><strong>Ejemplo completamente ficticio.</strong> El negocio, el dominio, las evidencias, las pruebas, las puntuaciones, las estimaciones y los resultados de este informe se han creado únicamente para mostrar el formato de una auditoría. No se ha analizado ninguna web real.</p>
+  </header>
 
+  <div class="report-body">
     <dl class="meta">
-      <dt>Negocio</dt><dd>Barbería Ejemplo (ficticia)</dd>
-      <dt>Web</dt><dd>barberiaejemplo.es (ficticia)</dd>
-      <dt>Tamaño</dt><dd>Pequeño negocio</dd>
-      <dt>Qué revisamos</dt><dd>Si ChatGPT, Claude y otras IA pueden leer tu web, entender lo que ofreces y actuar en ella</dd>
+      <div><dt>Referencia</dt><dd>JM20-2026-001</dd></div>
+      <div><dt>Fecha del ejemplo</dt><dd>10 noviembre 2026</dd></div>
+      <div><dt>Estado</dt><dd>Informe ilustrativo</dd></div>
+      <div><dt>Negocio</dt><dd>Barbería Ejemplo</dd></div>
+      <div><dt>Web analizada</dt><dd>barberiaejemplo.es</dd></div>
+      <div><dt>Tipo de negocio</dt><dd>Pequeño negocio local · Madrid</dd></div>
+      <div><dt>Alcance</dt><dd>Visibilidad y preparación para IA</dd></div>
+      <div><dt>Áreas evaluadas</dt><dd>6 áreas técnicas y funcionales</dd></div>
+      <div><dt>Preparado por</dt><dd>JM20 AI Solutions</dd></div>
     </dl>
 
-    <h2>Resumen</h2>
-    <p class="summary">Una IA puede llegar a la web de la barbería, pero no puede leer sus precios con fiabilidad ni reservar una cita. De 6 áreas revisadas, 1 está correcta, 3 son mejorables y 2 son críticas.</p>
-    <div class="tally" aria-label="Recuento por estado">
-      <span class="chip ok">1 correcta</span>
-      <span class="chip mid">3 mejorables</span>
-      <span class="chip bad">2 críticas</span>
-    </div>
+    <section id="resumen">
+      <h2>01. Resumen ejecutivo</h2>
+      <p class="summary">En este escenario ficticio, la web es accesible para rastreadores, pero presenta problemas al exponer información esencial del negocio y no ofrece una forma clara para que un agente complete una reserva. La información publicada tampoco es completamente coherente entre los distintos canales.</p>
+      <div class="score-panel">
+        <div>
+          <div class="small-label">Puntuación global ilustrativa</div>
+          <div class="score-number">42<small> / 100</small></div>
+          <span class="score-status">Necesita mejoras</span>
+        </div>
+        <div class="score-details">
+          <strong>Preparación para asistentes y agentes de IA</strong>
+          <div class="bar" role="img" aria-label="Puntuación ilustrativa: 42 de 100"><span></span></div>
+          <div class="tally">
+            <span class="chip ok">1 correcta</span>
+            <span class="chip mid">3 mejorables</span>
+            <span class="chip bad">2 críticas</span>
+          </div>
+        </div>
+      </div>
+      <div class="note"><strong>Cómo se calcula:</strong> puntuación de ejemplo basada en seis áreas con pesos de 15, 20, 15, 15, 15 y 20 puntos, respectivamente. En este caso ficticio: 15 + 3 + 8 + 8 + 8 + 0 = 42. No es una puntuación oficial ni una métrica universal de visibilidad en IA. En una auditoría real, JM20 debe definir y aplicar criterios verificables y consistentes.</div>
+    </section>
 
-    <h2>Resultados por área</h2>
-    <div class="areas">
+    <section id="metodologia">
+      <h2>02. Alcance y metodología</h2>
+      <p class="muted">Una auditoría real debe dejar claro qué se ha revisado, cómo se ha revisado y qué no puede concluirse a partir de esas comprobaciones.</p>
+      <div class="method-grid">
+        <div class="method"><strong>Acceso y rastreo</strong><p>Revisión de disponibilidad pública, instrucciones de rastreo y acceso a páginas relevantes.</p></div>
+        <div class="method"><strong>Contenido e información</strong><p>Comprobación de que servicios, precios, horarios y contacto están publicados como contenido legible.</p></div>
+        <div class="method"><strong>Datos y coherencia</strong><p>Revisión de datos estructurados y comparación de la información del negocio entre canales.</p></div>
+        <div class="method"><strong>Experiencia y acciones</strong><p>Inspección de estructura, rendimiento y posibilidades reales de completar tareas, como reservar.</p></div>
+      </div>
+      <div class="note">Las pruebas de respuesta de asistentes de IA dependen del sistema, la consulta, la ubicación, el contexto y el momento. Una prueba puntual no demuestra cómo responderán todos los modelos ni garantiza recomendaciones futuras.</div>
+    </section>
 
-      <section class="area" aria-labelledby="a1">
-        <div class="area-head"><h3 id="a1">1. Acceso para IA</h3><span class="chip ok">Correcta</span></div>
-        <dl>
-          <div><dt>Qué vimos</dt><dd>El archivo <code>robots.txt</code> no bloquea a los rastreadores de IA y la web responde sin necesidad de iniciar sesión.</dd></div>
-          <div><dt>Qué haríamos</dt><dd>Nada ahora. Lo revisaríamos cada mes dentro del mantenimiento.</dd></div>
-        </dl>
-      </section>
+    <section id="resultados">
+      <h2>03. Resultados por área</h2>
+      <div class="area-list">
 
-      <section class="area" aria-labelledby="a2">
-        <div class="area-head"><h3 id="a2">2. Datos del negocio legibles</h3><span class="chip bad">Crítica</span></div>
-        <dl>
-          <div><dt>Qué vimos</dt><dd>Los horarios están dentro de una imagen y la lista de precios es un PDF escaneado.</dd></div>
-          <div><dt>Por qué importa</dt><dd>Una IA no siempre puede leer texto dentro de imágenes o PDF escaneados, y no es fiable que responda con ello. Si no puede leer tus precios u horarios, no los usará al recomendarte.</dd></div>
-          <div><dt>Qué haríamos</dt><dd>Pasar horarios, servicios y precios a texto en la propia página.</dd></div>
-        </dl>
-      </section>
+        <section class="area" aria-labelledby="a1">
+          <div class="area-head"><div class="left"><span class="num">01</span><h3 id="a1">Acceso para IA</h3></div><span class="chip ok">Correcta · 15/15</span></div>
+          <div class="area-content">
+            <dl>
+              <div><dt>Qué se revisó</dt><dd>Acceso público a la web, respuesta del servidor e instrucciones del archivo <code>robots.txt</code>.</dd></div>
+              <div><dt>Hallazgo</dt><dd>En el escenario ficticio, la web responde sin inicio de sesión y el archivo <code>robots.txt</code> no contiene reglas que bloqueen los rastreadores de IA contemplados en esta comprobación.</dd></div>
+              <div><dt>Evidencia de ejemplo</dt><dd><code>https://barberiaejemplo.es/robots.txt</code> · respuesta HTTP 200 · página principal accesible públicamente. Datos simulados.</dd></div>
+              <div><dt>Por qué importa</dt><dd>Si una página no es accesible o las reglas de rastreo impiden su consulta, algunos sistemas pueden tener dificultades para descubrir su contenido. La accesibilidad no garantiza que una IA vaya a rastrear, indexar o recomendar la web.</dd></div>
+              <div><dt>Qué haríamos</dt><dd>No se requiere un cambio inmediato en este punto. Mantendríamos una revisión periódica de disponibilidad y reglas de rastreo.</dd></div>
+            </dl>
+            <div class="finding-meta"><span>Prioridad: <strong>Baja</strong></span><span>Estimación: <strong>Sin cambios</strong></span><span>Estado: <strong>Sin acción correctiva</strong></span></div>
+          </div>
+        </section>
 
-      <section class="area" aria-labelledby="a3">
-        <div class="area-head"><h3 id="a3">3. Datos estructurados</h3><span class="chip mid">Mejorable</span></div>
-        <dl>
-          <div><dt>Qué vimos</dt><dd>La web declara el nombre del negocio, pero no sus horarios, servicios ni dirección en un formato que las máquinas entiendan (schema.org).</dd></div>
-          <div><dt>Por qué importa</dt><dd>Los datos estructurados dicen a una IA, sin adivinar, qué eres, dónde estás y qué ofreces.</dd></div>
-          <div><dt>Qué haríamos</dt><dd>Añadir la ficha completa del negocio local con horarios, servicios y contacto.</dd></div>
-        </dl>
-      </section>
+        <section class="area" aria-labelledby="a2">
+          <div class="area-head"><div class="left"><span class="num">02</span><h3 id="a2">Datos del negocio legibles</h3></div><span class="chip bad">Crítica · 3/20</span></div>
+          <div class="area-content">
+            <dl>
+              <div><dt>Qué se revisó</dt><dd>Presentación de horarios, servicios, precios, dirección y datos de contacto en las páginas públicas.</dd></div>
+              <div><dt>Hallazgo</dt><dd>Los horarios están publicados dentro de una imagen y la lista de precios aparece en un PDF escaneado. La página principal no contiene una versión textual completa de esa información.</dd></div>
+              <div><dt>Evidencia de ejemplo</dt><dd><code>/assets/horarios.jpg</code> · <code>/documentos/precios.pdf</code> · ausencia de una tabla HTML de precios en <code>/servicios/</code>. Rutas y observaciones simuladas.</dd></div>
+              <div><dt>Por qué importa</dt><dd>El texto incluido en imágenes o documentos escaneados puede no estar disponible para todos los sistemas de extracción. Esto puede dificultar que un asistente identifique con precisión qué servicios ofrece el negocio, cuánto cuestan o cuándo abre.</dd></div>
+              <div><dt>Qué haríamos</dt><dd><ul><li>Publicar horarios como texto HTML.</li><li>Crear una página de servicios y precios con contenido seleccionable.</li><li>Añadir dirección, teléfono y datos de contacto en un lugar visible.</li><li>Mantener la información consistente en todas las páginas.</li></ul></dd></div>
+            </dl>
+            <div class="finding-meta"><span>Prioridad: <strong>Alta</strong></span><span>Estimación: <strong>1–2 horas</strong></span><span>Estado: <strong>Pendiente</strong></span></div>
+          </div>
+        </section>
 
-      <section class="area" aria-labelledby="a4">
-        <div class="area-head"><h3 id="a4">4. Coherencia de datos</h3><span class="chip mid">Mejorable</span></div>
-        <dl>
-          <div><dt>Qué vimos</dt><dd>El teléfono de la web no coincide con el de Apple Maps, y el horario del sábado es distinto en Google y en la web.</dd></div>
-          <div><dt>Por qué importa</dt><dd>Cuando las fuentes se contradicen, una IA puede dudar y recomendar a otro negocio con datos más claros.</dd></div>
-          <div><dt>Qué haríamos</dt><dd>Unificar teléfono, dirección y horarios en la web, Google, Apple Maps y los directorios.</dd></div>
-        </dl>
-      </section>
+        <section class="area" aria-labelledby="a3">
+          <div class="area-head"><div class="left"><span class="num">03</span><h3 id="a3">Datos estructurados</h3></div><span class="chip mid">Mejorable · 8/15</span></div>
+          <div class="area-content">
+            <dl>
+              <div><dt>Qué se revisó</dt><dd>Presencia y consistencia de datos estructurados basados en Schema.org, especialmente información de negocio local.</dd></div>
+              <div><dt>Hallazgo</dt><dd>La web incluye el nombre del negocio en el marcado, pero no declara de forma completa y coherente la dirección, los horarios, el teléfono y los servicios.</dd></div>
+              <div><dt>Evidencia de ejemplo</dt><dd>Inspección simulada del código fuente de la página principal: entidad de negocio incompleta; propiedades <code>openingHours</code>, <code>telephone</code> y <code>address</code> ausentes o incompletas.</dd></div>
+              <div><dt>Por qué importa</dt><dd>Los datos estructurados ayudan a describir entidades y propiedades de forma explícita. No garantizan que un sistema de IA los utilice ni que una web obtenga una posición o recomendación determinada.</dd></div>
+              <div><dt>Qué haríamos</dt><dd>Implementar y validar un marcado apropiado para el negocio local, con datos reales y consistentes. Añadir únicamente propiedades que puedan verificarse en el contenido visible de la web.</dd></div>
+            </dl>
+            <div class="finding-meta"><span>Prioridad: <strong>Media</strong></span><span>Estimación: <strong>1–2 horas</strong></span><span>Estado: <strong>Pendiente</strong></span></div>
+          </div>
+        </section>
 
-      <section class="area" aria-labelledby="a5">
-        <div class="area-head"><h3 id="a5">5. Estructura y velocidad</h3><span class="chip mid">Mejorable</span></div>
-        <dl>
-          <div><dt>Qué vimos</dt><dd>Varias páginas repiten el mismo título y la página principal tarda demasiado en cargar en móvil.</dd></div>
-          <div><dt>Por qué importa</dt><dd>Una web ordenada y rápida es más fácil de leer para una IA y para tus clientes.</dd></div>
-          <div><dt>Qué haríamos</dt><dd>Dar a cada página un título propio y ligero, y reducir el peso de las imágenes.</dd></div>
-        </dl>
-      </section>
+        <section class="area" aria-labelledby="a4">
+          <div class="area-head"><div class="left"><span class="num">04</span><h3 id="a4">Coherencia de datos externos</h3></div><span class="chip mid">Mejorable · 8/15</span></div>
+          <div class="area-content">
+            <dl>
+              <div><dt>Qué se revisó</dt><dd>Coincidencia de nombre, dirección, teléfono y horarios entre la web y perfiles externos seleccionados.</dd></div>
+              <div><dt>Hallazgo</dt><dd>En este ejemplo, el teléfono publicado en la web no coincide con el de Apple Maps y el horario del sábado difiere entre la web y el perfil de Google.</dd></div>
+              <div><dt>Evidencia de ejemplo</dt><dd>Web: <code>910 000 111</code> · ficha externa: <code>910 000 222</code>. Sábado en web: 10:00–14:00 · ficha externa: 10:00–15:00. Todos los datos son inventados.</dd></div>
+              <div><dt>Por qué importa</dt><dd>Las diferencias entre fuentes pueden generar incertidumbre sobre cuál es la información correcta. Conviene que los datos principales sean precisos y estén actualizados en los canales relevantes.</dd></div>
+              <div><dt>Qué haríamos</dt><dd>Confirmar los datos correctos con el negocio y unificar teléfono, dirección y horarios en la web y en los perfiles externos que controle el cliente.</dd></div>
+            </dl>
+            <div class="finding-meta"><span>Prioridad: <strong>Media</strong></span><span>Estimación: <strong>1 hora + actualización de perfiles</strong></span><span>Estado: <strong>Pendiente de confirmar datos reales</strong></span></div>
+          </div>
+        </section>
 
-      <section class="area" aria-labelledby="a6">
-        <div class="area-head"><h3 id="a6">6. Acciones para la IA</h3><span class="chip bad">Crítica</span></div>
-        <dl>
-          <div><dt>Qué vimos</dt><dd>Reservar una cita solo es posible por teléfono o con un formulario que una IA no puede completar por su cuenta.</dd></div>
-          <div><dt>Por qué importa</dt><dd>Un asistente de IA puede encontrar la barbería, pero no cerrar la reserva por el cliente.</dd></div>
-          <div><dt>Qué haríamos</dt><dd>Añadir una acción de reserva con WebMCP para que un agente pueda comprobar disponibilidad y reservar, con confirmación del cliente.</dd></div>
-        </dl>
-      </section>
+        <section class="area" aria-labelledby="a5">
+          <div class="area-head"><div class="left"><span class="num">05</span><h3 id="a5">Estructura y rendimiento</h3></div><span class="chip mid">Mejorable · 8/15</span></div>
+          <div class="area-content">
+            <dl>
+              <div><dt>Qué se revisó</dt><dd>Estructura de encabezados, títulos de página, enlaces internos y rendimiento de carga en móvil.</dd></div>
+              <div><dt>Hallazgo</dt><dd>Varias páginas utilizan el mismo título HTML y la página principal presenta imágenes de gran tamaño que ralentizan la carga en el escenario simulado.</dd></div>
+              <div><dt>Evidencia de ejemplo</dt><dd><code>&lt;title&gt;Barbería Ejemplo&lt;/title&gt;</code> repetido en tres páginas. Imágenes principales sin compresión adecuada. No se aportan métricas reales de laboratorio ni de usuarios.</dd></div>
+              <div><dt>Por qué importa</dt><dd>Una estructura clara facilita que personas y sistemas automáticos identifiquen el propósito de cada página. El rendimiento también influye en la experiencia de navegación, aunque no debe confundirse una mejora de velocidad con una garantía de visibilidad en IA.</dd></div>
+              <div><dt>Qué haríamos</dt><dd>Asignar títulos descriptivos y únicos, ordenar encabezados, revisar enlaces internos y optimizar el tamaño y formato de las imágenes. Medir el resultado antes y después con herramientas de rendimiento.</dd></div>
+            </dl>
+            <div class="finding-meta"><span>Prioridad: <strong>Media</strong></span><span>Estimación: <strong>2–3 horas</strong></span><span>Estado: <strong>Pendiente</strong></span></div>
+          </div>
+        </section>
 
-    </div>
+        <section class="area" aria-labelledby="a6">
+          <div class="area-head"><div class="left"><span class="num">06</span><h3 id="a6">Acciones disponibles para agentes</h3></div><span class="chip bad">Crítica · 0/20</span></div>
+          <div class="area-content">
+            <dl>
+              <div><dt>Qué se revisó</dt><dd>Si un usuario o agente puede completar una tarea útil en la web, en este caso consultar disponibilidad y solicitar una reserva.</dd></div>
+              <div><dt>Hallazgo</dt><dd>Las reservas se gestionan por teléfono o mediante un formulario web convencional. En este escenario, no existe una interfaz de acción documentada y comprobada que permita a un agente consultar disponibilidad y tramitar una reserva de forma estructurada.</dd></div>
+              <div><dt>Evidencia de ejemplo</dt><dd>Enlace de teléfono y formulario HTML estándar en <code>/reservas/</code>. No se ha identificado una integración de reservas compatible con agentes. Comprobación ficticia.</dd></div>
+              <div><dt>Por qué importa</dt><dd>Que una IA pueda leer una página no significa que pueda completar una operación. Para ejecutar una reserva se necesita una integración funcional, acceso a disponibilidad actualizada y controles adecuados antes de confirmar la operación.</dd></div>
+              <div><dt>Qué haríamos</dt><dd>Evaluar la plataforma de reservas y, si es técnicamente viable, implementar una vía de interacción compatible con agentes —por ejemplo, mediante WebMCP— conectada al sistema de reservas. La solución debe validar disponibilidad, respetar las reglas del negocio y solicitar confirmación antes de cerrar la reserva.</dd></div>
+            </dl>
+            <div class="finding-meta"><span>Prioridad: <strong>Alta</strong></span><span>Estimación: <strong>Depende del sistema de reservas</strong></span><span>Estado: <strong>Requiere análisis de integración</strong></span></div>
+          </div>
+        </section>
+      </div>
+    </section>
 
-    <h2>Siguiente paso recomendado</h2>
-    <ol class="next-steps">
-      <li><strong>Optimización:</strong> corregir las áreas 2 a 5 para que la IA lea datos claros y coherentes.</li>
-      <li><strong>Acciones para la IA:</strong> añadir la reserva directa (área 6).</li>
-      <li><strong>Mantenimiento mensual:</strong> comprobar cada mes que las IA siguen pudiendo leer la web y que los datos están al día.</li>
-    </ol>
+    <section id="pruebas">
+      <h2>04. Pruebas de consulta con IA</h2>
+      <p class="test-intro">La siguiente tabla ilustra cómo podrían documentarse consultas prácticas sobre el negocio. Son resultados inventados para este ejemplo: no se han enviado consultas a ChatGPT, Claude, Gemini ni a ningún otro sistema.</p>
+      <table>
+        <thead><tr><th>Consulta de ejemplo</th><th>Resultado simulado</th><th>Observación</th></tr></thead>
+        <tbody>
+          <tr><td>«Busca una barbería en Madrid que ofrezca arreglo de barba»</td><td><span class="result">No identificada</span></td><td>La página no presenta los servicios en texto de forma clara.</td></tr>
+          <tr><td>«¿Cuál es el horario del sábado?»</td><td><span class="result">Respuesta incompleta</span></td><td>El horario aparece en una imagen y hay discrepancias entre fuentes.</td></tr>
+          <tr><td>«¿Cuánto cuesta un corte de pelo?»</td><td><span class="result">No se pudo determinar</span></td><td>La lista de precios está en un PDF escaneado.</td></tr>
+          <tr><td>«¿Puedo reservar una cita para mañana?»</td><td><span class="result">No puede completar la acción</span></td><td>No se ha identificado una vía de reserva compatible con agentes.</td></tr>
+        </tbody>
+      </table>
+      <div class="note"><strong>Cómo interpretar estas pruebas:</strong> sirven para comprobar si la información necesaria está disponible y es comprensible en un escenario concreto. Los resultados pueden variar entre modelos, consultas, sesiones y fechas. No constituyen una medición universal ni una garantía de posicionamiento.</div>
+    </section>
 
-    <p class="updated disclaimer">No podemos garantizar que ChatGPT, Claude u otras IA te recomienden o te incluyan en sus respuestas. Esta auditoría mejora las condiciones para que puedan hacerlo.</p>
+    <section id="plan">
+      <h2>05. Plan de acción recomendado</h2>
+      <p class="muted">Orden propuesto según el impacto práctico de los problemas detectados y las dependencias técnicas. Los tiempos son estimaciones ficticias, no presupuestos cerrados.</p>
+      <div class="priority-list">
+        <div class="priority"><div><h3>Publicar servicios, precios y horarios como texto</h3><p>Eliminar la dependencia de imágenes y documentos escaneados para la información esencial del negocio.</p></div><span class="estimate">1–2 h · Alta</span></div>
+        <div class="priority"><div><h3>Corregir y completar los datos estructurados</h3><p>Definir la entidad del negocio y añadir propiedades verificables y coherentes con el contenido visible.</p></div><span class="estimate">1–2 h · Media</span></div>
+        <div class="priority"><div><h3>Unificar la información entre canales</h3><p>Confirmar los datos correctos y actualizar la web y los perfiles externos relevantes.</p></div><span class="estimate">1 h + gestión · Media</span></div>
+        <div class="priority"><div><h3>Mejorar títulos, estructura y rendimiento</h3><p>Corregir títulos duplicados, revisar encabezados y optimizar imágenes.</p></div><span class="estimate">2–3 h · Media</span></div>
+        <div class="priority"><div><h3>Estudiar e implementar reservas para agentes</h3><p>Analizar el sistema actual y diseñar una integración que consulte disponibilidad y confirme reservas de forma controlada.</p></div><span class="estimate">Por definir · Alta</span></div>
+        <div class="priority"><div><h3>Establecer una revisión periódica</h3><p>Comprobar que la web sigue accesible, que los datos no han cambiado y que las acciones implementadas continúan funcionando.</p></div><span class="estimate">Mensual · Seguimiento</span></div>
+      </div>
+      <div class="roadmap">
+        <div class="phase"><b>Fase 1 · Claridad</b><p>Contenido esencial, datos del negocio y coherencia entre fuentes.</p></div>
+        <div class="phase"><b>Fase 2 · Preparación</b><p>Estructura técnica, rendimiento y capacidades de interacción.</p></div>
+        <div class="phase"><b>Fase 3 · Seguimiento</b><p>Verificación periódica y mantenimiento de las mejoras.</p></div>
+      </div>
+    </section>
 
-    <div class="cta-row ctas">
+    <section id="entrega">
+      <h2>06. Qué incluye la entrega</h2>
+      <div class="deliverables">
+        <div class="deliverable">Evaluación de las áreas incluidas en el alcance.</div>
+        <div class="deliverable">Hallazgos explicados en lenguaje claro.</div>
+        <div class="deliverable">Evidencias y ubicaciones concretas que revisar.</div>
+        <div class="deliverable">Impacto potencial de cada problema.</div>
+        <div class="deliverable">Soluciones técnicas recomendadas.</div>
+        <div class="deliverable">Prioridades y estimaciones iniciales.</div>
+      </div>
+    </section>
+
+    <p class="disclaimer"><strong>Limitaciones importantes.</strong> Una auditoría de visibilidad en IA no puede garantizar que ChatGPT, Claude, Gemini u otros sistemas rastreen, citen o recomienden un negocio. Los sistemas utilizan fuentes, criterios y procesos distintos que pueden cambiar. Las conclusiones de un informe real se basan en las comprobaciones efectivamente realizadas y en la fecha de la auditoría. Las integraciones con agentes requieren pruebas funcionales específicas; no basta con añadir marcado o código a una web.</p>
+
+    <div class="cta-row">
       <a class="btn" href="index.html#audit">Solicitar auditoría</a>
       <a class="alt" href="index.html#metodo">Ver precios y pasos</a>
     </div>
-  </article>
+  </div>
+</article>
 </main>
 
 <footer id="foot">
-  <div class="wrap">
-    <img class="flogo" src="jm20-logo.png" alt="JM20 AI Solutions">
-    <p>WebMCP es un servicio de JM20 AI Solutions</p>
-    <p class="copy">© 2026 JM20 AI Solutions. Todos los derechos reservados.</p>
-    <nav aria-label="Legal">
-      <a href="index.html">Volver a WebMCP</a>
-      <a href="terminos-de-servicio.html">Términos de servicio</a>
-      <a href="politica-de-privacidad.html">Política de privacidad</a>
-    </nav>
-  </div>
+  <img src="jm20-logo.png" alt="JM20 AI Solutions">
+  <p>WebMCP es un servicio de JM20 AI Solutions</p>
+  <p>© 2026 JM20 AI Solutions. Todos los derechos reservados.</p>
+  <nav aria-label="Legal">
+    <a href="index.html">Volver a WebMCP</a>
+    <a href="terminos-de-servicio.html">Términos de servicio</a>
+    <a href="politica-de-privacidad.html">Política de privacidad</a>
+  </nav>
 </footer>
-
 </body>
 </html>
