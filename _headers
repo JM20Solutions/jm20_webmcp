@@ -32,3 +32,6 @@
 /llms.txt
   Content-Type: text/plain; charset=utf-8
   Access-Control-Allow-Origin: *
+  Link: </.well-known/agent-skills/index.json>; rel="agent-skills"; type="application/json"
+  Link: </llms.txt>; rel="service-doc"; type="text/plain"
+  Link: </sitemap.xml>; rel="sitemap"; type="application/xml"
