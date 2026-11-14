@@ -185,8 +185,8 @@
 <section class="tile dark" id="audit">
   <div class="wrap">
     <h2>Descubre si tu web es visible para la inteligencia artificial.</h2>
-    <!-- Supabase: tabla public.leads_webmcp, con la misma clave anon y cabeceras que la web principal. Nunca pongas aquí la secret/service key -->
-    <form id="audit-form" toolname="solicitar_auditoria" tooldescription="Solicita una auditoría de visibilidad en IA para la web de un negocio. Indica contacto, empresa, URL y tamaño de empresa. La persona debe aceptar la política de privacidad y pulsar enviar." data-endpoint="https://wiavnyuchdsfztzhvaua.supabase.co/rest/v1/leads_webmcp" data-apikey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndpYXZueXVjaGRzZnp0emh2YXVhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEwMDI2ODQsImV4cCI6MjA4NjU3ODY4NH0.dXz7vyFglA_lihma__rbtBT8afZZ1YUJEkAmqpFOL6c" novalidate>
+    <!-- El formulario envía a la Edge Function submit-lead (verifica Turnstile e inserta en public.leads_webmcp). Sin claves secretas aquí. -->
+    <form id="audit-form" toolname="solicitar_auditoria" tooldescription="Solicita una auditoría de visibilidad en IA para la web de un negocio. Indica contacto, empresa, URL y tamaño de empresa. La persona debe aceptar la política de privacidad y pulsar enviar." data-endpoint="https://wiavnyuchdsfztzhvaua.supabase.co/functions/v1/submit-lead" novalidate>
       <div class="row2">
       <div><label for="nombre">Nombre del contacto</label><input id="nombre" name="nombre" type="text" toolparamdescription="Nombre de la persona de contacto" autocomplete="name" required aria-describedby="e-nombre"><p class="ferr" id="e-nombre" hidden></p></div>
       <div><label for="empresa">Nombre de la empresa</label><input id="empresa" name="empresa" type="text" toolparamdescription="Nombre de la empresa" autocomplete="organization" required aria-describedby="e-empresa"><p class="ferr" id="e-empresa" hidden></p></div>
@@ -208,6 +208,7 @@
         <label class="consent" for="gdpr"><input id="gdpr" name="consentimiento" type="checkbox" toolparamdescription="Solo la persona usuaria puede aceptar la política de privacidad; el agente no debe marcarla" required aria-describedby="e-consentimiento"><span>He leído y acepto la <a href="https://jm20aisolutions.com/politica-de-privacidad.html">política de privacidad</a>. Consiento el análisis técnico de la URL facilitada para la emisión de la auditoría solicitada.</span></label>
         <p class="ferr" id="e-consentimiento" hidden></p>
       </div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAGAvZbgEM21WL37h" data-appearance="interaction-only" data-theme="dark" data-language="es"></div>
       <p class="fstatus" id="fstatus" role="alert" hidden></p>
       <button class="btn" type="submit">Solicitar auditoría</button>
     </form>
@@ -267,6 +268,7 @@
 
 <div class="dock" id="dock" hidden><a class="btn" href="#audit">Solicitar auditoría</a></div>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="nav.js" defer></script>
 <script src="demos.js" defer></script>
 <script src="pricing.js" defer></script>

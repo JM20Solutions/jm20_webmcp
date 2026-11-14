@@ -1,4 +1,4 @@
-/* webmcp_form.js — formulario de auditoría JM20 → Supabase (public.leads_webmcp) */
+/* webmcp_form.js — formulario de auditoría JM20 → Edge Function submit-lead (Turnstile) → public.leads_webmcp */
 (function(){
   var f=document.getElementById('audit-form'),st=document.getElementById('fstatus'),done=document.getElementById('fok'),b=f.querySelector('button'),label=b.textContent;
   var names=['nombre','empresa','url','email','tamano','consentimiento'];
@@ -26,21 +26,23 @@
     b.disabled=true;b.textContent='Enviando…';
     var ep=f.dataset.endpoint;
     if(!ep){console.warn('audit-form: falta data-endpoint');fail('No hemos podido enviar tu solicitud ahora mismo. Inténtalo de nuevo en unos minutos.');return}
-    var key=f.dataset.apikey;
     var url=f.elements.url.value;
-    var body={nombre:f.elements.nombre.value.trim(),empresa:f.elements.empresa.value.trim(),url:url,email:f.elements.email.value.trim(),tamano:f.querySelector('input[name=tamano]:checked').value,consentimiento:true};
-    var h={'Content-Type':'application/json',Prefer:'return=minimal',apikey:key,Authorization:'Bearer '+key};
+    var tk=f.querySelector('[name="cf-turnstile-response"]'),token=tk?tk.value:'';
+    if(!token){fail('Espera un momento a que termine la verificación de seguridad e inténtalo de nuevo.');return}
+    var body={nombre:f.elements.nombre.value.trim(),empresa:f.elements.empresa.value.trim(),url:url,email:f.elements.email.value.trim(),tamano:f.querySelector('input[name=tamano]:checked').value,consentimiento:true,turnstileToken:token};
+    var h={'Content-Type':'application/json'};
     var ctl=new AbortController(),to=setTimeout(function(){ctl.abort()},15000);
     fetch(ep,{method:'POST',headers:h,body:JSON.stringify(body),signal:ctl.signal})
       .then(function(r){
         clearTimeout(to);
         if(r.ok){f.hidden=true;done.hidden=false;done.focus();done.scrollIntoView({block:'center'});return}
-        return r.text().then(function(t){console.error('audit-form: Supabase respondió',r.status,t);throw r.status});
+        return r.text().then(function(t){console.error('audit-form: submit-lead respondió',r.status,t);throw r.status});
       })
       .catch(function(s){
         clearTimeout(to);
+        try{if(window.turnstile)window.turnstile.reset()}catch(x){}
         if(typeof s!=='number')console.error('audit-form: error de red/CORS',s);
-        fail(typeof s==='number'?'Tu solicitud no se ha podido registrar. Inténtalo de nuevo en unos minutos.':'No hemos podido enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.');
+        fail(s===403?'No hemos podido verificar que eres una persona. Inténtalo de nuevo.':typeof s==='number'?'Tu solicitud no se ha podido registrar. Inténtalo de nuevo en unos minutos.':'No hemos podido enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo.');
       });
   });
 })();
