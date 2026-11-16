@@ -1,15 +1,16 @@
-/* webmcp_form.js — formulario de auditoría JM20 → Edge Function submit-lead (Turnstile) → public.leads_webmcp */
+/* webmcp_form.js — formulario de auditoría JM20 → Edge Function submit-lead (Turnstile) → public.leads_webmcp
+   Nota: el formulario ya no pregunta el tamaño de la empresa (precio único por sitio web).
+   Se sigue enviando tamano:'pequeno' como valor fijo por si la función submit-lead lo espera. */
 (function(){
   var f=document.getElementById('audit-form'),st=document.getElementById('fstatus'),done=document.getElementById('fok'),b=f.querySelector('button'),label=b.textContent;
-  var names=['nombre','empresa','url','email','tamano','consentimiento'];
-  var msgs={nombre:'Escribe tu nombre.',empresa:'Escribe el nombre de tu empresa.',url:'Escribe la web de tu negocio, por ejemplo minegocio.es.',email:'Escribe un email válido, por ejemplo nombre@empresa.es.',tamano:'Elige el tamaño de tu empresa.',consentimiento:'Acepta la política de privacidad para continuar.'};
+  var names=['nombre','empresa','url','email','consentimiento'];
+  var msgs={nombre:'Escribe tu nombre.',empresa:'Escribe el nombre de tu empresa.',url:'Escribe la web de tu negocio, por ejemplo minegocio.es.',email:'Escribe un email válido, por ejemplo nombre@empresa.es.',consentimiento:'Acepta la política de privacidad para continuar.'};
   function normUrl(v){v=v.trim();if(!v)return '';if(!/^https?:\/\//i.test(v))v='https://'+v;try{var u=new URL(v);return u.hostname.indexOf('.')>0?u.href:''}catch(e){return ''}}
   function fields(n){var e=f.elements[n];return e.length?[].slice.call(e):[e]}
   function check(n){
     var e=f.elements[n],ok;
     if(n==='url')ok=!!normUrl(e.value);
     else if(n==='email')ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.value.trim());
-    else if(n==='tamano')ok=!!f.querySelector('input[name=tamano]:checked');
     else if(n==='consentimiento')ok=e.checked;
     else ok=!!e.value.trim();
     var p=document.getElementById('e-'+n);p.textContent=ok?'':msgs[n];p.hidden=ok;
@@ -29,7 +30,7 @@
     var url=f.elements.url.value;
     var tk=f.querySelector('[name="cf-turnstile-response"]'),token=tk?tk.value:'';
     if(!token){fail('Espera un momento a que termine la verificación de seguridad e inténtalo de nuevo.');return}
-    var body={nombre:f.elements.nombre.value.trim(),empresa:f.elements.empresa.value.trim(),url:url,email:f.elements.email.value.trim(),tamano:f.querySelector('input[name=tamano]:checked').value,consentimiento:true,turnstileToken:token};
+    var body={nombre:f.elements.nombre.value.trim(),empresa:f.elements.empresa.value.trim(),url:url,email:f.elements.email.value.trim(),tamano:'pequeno',consentimiento:true,turnstileToken:token};
     var h={'Content-Type':'application/json'};
     var ctl=new AbortController(),to=setTimeout(function(){ctl.abort()},15000);
     fetch(ep,{method:'POST',headers:h,body:JSON.stringify(body),signal:ctl.signal})
