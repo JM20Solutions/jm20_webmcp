@@ -33,3 +33,17 @@
 .fine li{margin-bottom:4px}
 @media (max-width:900px){.phases{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.phases{grid-template-columns:1fr}.js .sizepick{display:grid}.sizepick button{width:100%}}
+
+/* tarjetas de precios: una por servicio */
+.tiers{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+.tier{display:flex;flex-direction:column;background:#fff;border:1px solid var(--hairline);border-radius:22px;padding:28px 24px}
+.tier h3{font-size:22px;line-height:1.25;letter-spacing:-.02em}
+.tp{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 6px;margin:20px 0 0;font:600 clamp(32px,3.2vw,42px)/1.1 var(--font);letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums}
+.tp .u{font:400 15px var(--font);letter-spacing:0;color:var(--ink-48)}
+.td{margin:8px 0 0;font-size:14px;line-height:1.43;color:var(--ink-48)}
+.tl{list-style:none;margin:24px 0 28px;padding:0;flex:1}
+.tl li{position:relative;padding-left:24px;margin:0 0 12px;font-size:15px;line-height:1.45;color:var(--ink-80)}
+.tl li::before{content:"\2713";position:absolute;left:0;top:0;font-weight:600;color:var(--ink)}
+.tier .btn{display:block;width:100%;text-align:center}
+@media (max-width:1000px){.tiers{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.tiers{grid-template-columns:1fr}}

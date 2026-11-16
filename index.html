@@ -116,14 +116,34 @@
 <li><h4>Acciones para la IA</h4><span class="sub">Herramientas en la web</span><p>Programamos accesos directos con WebMCP (una propuesta de estándar web con soporte inicial en Google Chrome) para que un agente de IA pueda reservar o pagar en tu web por su cuenta.</p></li>
 <li class="maint"><h4>Mantenimiento recurrente</h4><span class="sub">Mensual</span><p>Cada mes revisamos que las IA puedan seguir leyendo tu web y mantenemos tus datos al día en tiempo real.</p></li>
 </ol>
-<div class="board">
-<article class="plan" aria-labelledby="pl-p">
-<h3 id="pl-p">Precios por sitio web</h3>
-<div class="pr"><span class="k">Auditoría</span><span class="p">99€<span class="u"> + IVA</span></span><small>1 sitio web, hasta 5 páginas</small><small>100% descontable si optimizas</small><small>Entrega en 24 horas</small></div>
-<div class="pr"><span class="k">Optimización</span><span class="p">399€<span class="u"> + IVA</span></span><small>1 sitio web, hasta 5 páginas</small></div>
-<div class="pr"><span class="k">Acciones para la IA</span><span class="p">699€<span class="u"> + IVA</span></span><small>1 sitio web, hasta 5 páginas</small></div>
-<div class="pr"><span class="k">Mantenimiento</span><span class="p"><span class="u">Desde </span>29€<span class="u">/mes + IVA</span></span><small>1 sitio web, hasta 5 páginas</small></div>
-<div class="pc"><a class="btn" href="#audit">Solicitar auditoría</a></div>
+<div class="tiers">
+<article class="tier" aria-labelledby="t-aud">
+<h3 id="t-aud">Auditoría</h3>
+<p class="tp">99€<span class="u">+ IVA</span></p>
+<p class="td">1 sitio web, hasta 5 páginas</p>
+<ul class="tl"><li>Revisamos si las IA pueden leer y entender tu web</li><li>Entrega en 24 horas</li><li>100% descontable si optimizas</li></ul>
+<a class="btn" href="#audit">Contáctanos</a>
+</article>
+<article class="tier" aria-labelledby="t-opt">
+<h3 id="t-opt">Optimización</h3>
+<p class="tp">399€<span class="u">+ IVA</span></p>
+<p class="td">1 sitio web, hasta 5 páginas</p>
+<ul class="tl"><li>Ordenamos la información de tu negocio para las IA</li><li>Les indicamos qué pueden usar de tu web</li><li>Se descuenta el importe de la auditoría</li></ul>
+<a class="btn" href="#audit">Contáctanos</a>
+</article>
+<article class="tier" aria-labelledby="t-acc">
+<h3 id="t-acc">Acciones para la IA</h3>
+<p class="tp">699€<span class="u">+ IVA</span></p>
+<p class="td">1 sitio web, hasta 5 páginas</p>
+<ul class="tl"><li>Accesos directos con WebMCP en tu web</li><li>Un agente de IA puede reservar o pagar por su cuenta</li></ul>
+<a class="btn" href="#audit">Contáctanos</a>
+</article>
+<article class="tier" aria-labelledby="t-man">
+<h3 id="t-man">Mantenimiento</h3>
+<p class="tp"><span class="u">Desde</span>29€<span class="u">/mes + IVA</span></p>
+<p class="td">1 sitio web, hasta 5 páginas</p>
+<ul class="tl"><li>Cada mes revisamos que las IA puedan leer tu web</li><li>Tus datos al día en tiempo real</li><li>Se factura cada mes</li></ul>
+<a class="btn" href="#audit">Contáctanos</a>
 </article>
 </div>
 <p class="fine">¿Más de 5 páginas o más de un sitio web? <a href="mailto:contact@jm20aisolutions.com">Contáctanos</a> y te haremos un precio especial. Todos los precios son sin IVA.</p>
@@ -157,7 +177,7 @@
 <div class="wrap">
 <h2>Descubre si tu web es visible para la inteligencia artificial.</h2>
 <!-- El formulario envía a la Edge Function submit-lead (verifica Turnstile e inserta en public.leads_webmcp). Sin claves secretas aquí. -->
-<form id="audit-form" toolname="solicitar_auditoria" tooldescription="Solicita una auditoría de visibilidad en IA para la web de un negocio (99 € + IVA, 1 sitio web, hasta 5 páginas, entrega en 24 horas). Indica contacto, empresa y URL. La persona debe aceptar la política de privacidad y pulsar enviar." data-endpoint="https://wiavnyuchdsfztzhvaua.supabase.co/functions/v1/submit-lead" novalidate>
+<form id="audit-form" toolname="contactar_jm20" tooldescription="Contacta con JM20 para consultar cómo preparar la web de un negocio para la IA. Indica contacto, empresa y URL. La persona debe aceptar la política de privacidad y pulsar enviar." data-endpoint="https://wiavnyuchdsfztzhvaua.supabase.co/functions/v1/submit-lead" novalidate>
 <div class="row2">
 <div><label for="nombre">Nombre del contacto</label><input id="nombre" name="nombre" type="text" toolparamdescription="Nombre de la persona de contacto" autocomplete="name" required aria-describedby="e-nombre"><p class="ferr" id="e-nombre" hidden></p></div>
 <div><label for="empresa">Nombre de la empresa</label><input id="empresa" name="empresa" type="text" toolparamdescription="Nombre de la empresa" autocomplete="organization" required aria-describedby="e-empresa"><p class="ferr" id="e-empresa" hidden></p></div>
@@ -167,21 +187,19 @@
 <div><label for="email">Email de contacto</label><input id="email" name="email" type="email" toolparamdescription="Email de contacto donde recibir la auditoría" autocomplete="email" required aria-describedby="e-email"><p class="ferr" id="e-email" hidden></p></div>
 </div>
 <div>
-<label class="consent" for="gdpr"><input id="gdpr" name="consentimiento" type="checkbox" toolparamdescription="Solo la persona usuaria puede aceptar la política de privacidad; el agente no debe marcarla" required aria-describedby="e-consentimiento"><span>He leído y acepto la <a href="https://aiready.jm20aisolutions.com/politica-de-privacidad">política de privacidad</a> y los <a href="https://aiready.jm20aisolutions.com/terminos-de-servicio">términos de servicio</a>. Consiento el análisis técnico de la URL facilitada para la emisión de la auditoría solicitada.</span></label>
+<label class="consent" for="gdpr"><input id="gdpr" name="consentimiento" type="checkbox" toolparamdescription="Solo la persona usuaria puede aceptar la política de privacidad; el agente no debe marcarla" required aria-describedby="e-consentimiento"><span>He leído y acepto la <a href="https://aiready.jm20aisolutions.com/politica-de-privacidad">política de privacidad</a> y los <a href="https://aiready.jm20aisolutions.com/terminos-de-servicio">términos de servicio</a>. Consiento el tratamiento de estos datos para atender mi consulta.</span></label>
 <p class="ferr" id="e-consentimiento" hidden></p>
 </div>
 <div class="cf-turnstile" data-sitekey="0x4AAAAAAGAvZbgEM21WL37h" data-appearance="interaction-only" data-theme="dark" data-language="es"></div>
 <p class="fstatus" id="fstatus" role="alert" hidden></p>
-<button class="btn" type="submit">Solicitar auditoría</button>
+<button class="btn" type="submit">Contáctanos</button>
 </form>
-<p class="fnote">Auditoría: 99€ + IVA · 1 sitio web (hasta 5 páginas) · entrega en 24 horas (<a href="#metodo">ver precios</a>).</p>
 <p class="contactline">¿Prefieres escribirnos? <a href="mailto:contact@jm20aisolutions.com">contact@jm20aisolutions.com</a></p>
 <div class="next">
 <h3>Qué pasa después</h3>
 <ol>
 <li>Recibimos tu solicitud y te contactamos por email.</li>
 <li>Analizamos la URL que nos indiques.</li>
-<li>Te entregamos la auditoría en 24 horas. <a href="audit-ejemplo.html">Mira cómo es</a>.</li>
 </ol>
 </div>
 <div class="fok" id="fok" role="status" tabindex="-1" hidden>
