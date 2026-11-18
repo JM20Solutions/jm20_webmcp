@@ -78,11 +78,23 @@
     scrollDown();
   }
 
+  // Mensaje amable cuando falla la conexión. El detalle técnico solo va a la consola del navegador.
+  var CONTACT_EMAIL = "contact@jm20aisolutions.com";
+  function friendly(node, lead) {
+    node.textContent = "";
+    node.appendChild(document.createTextNode(lead + " Inténtalo de nuevo en unos minutos o escríbenos a "));
+    var a = el("a", "", CONTACT_EMAIL);
+    a.href = "mailto:" + CONTACT_EMAIL;
+    node.appendChild(a);
+    node.appendChild(document.createTextNode("."));
+  }
+
   function showTechnicalError(box, e) {
+    if (window.console) console.error("aicheck:", e);
     box.textContent = "";
-    box.appendChild(el("p", "ac-bad", "No se pudo conectar con el análisis."));
-    box.appendChild(el("p", "ac-note", "Detalle técnico: " + e.message));
-    box.appendChild(el("p", "ac-note", "Comprueba que el workflow de n8n está activado."));
+    var p = el("p", "ac-bad");
+    friendly(p, "No hemos podido completar el análisis en este momento.");
+    box.appendChild(p);
   }
 
   function renderResult(box, data) {
@@ -175,7 +187,8 @@
           scrollDown();
         })
         .catch(function (e) {
-          err.textContent = "No se pudo conectar. " + e.message;
+          if (window.console) console.error("aicheck:", e);
+          friendly(err, "No hemos podido enviar tu solicitud en este momento.");
           btn.disabled = false;
         });
     });
@@ -254,7 +267,8 @@
           finish();
         })
         .catch(function (e) {
-          err.textContent = "No se pudo conectar. " + e.message;
+          if (window.console) console.error("aicheck:", e);
+          friendly(err, "No hemos podido mostrar el resultado en este momento.");
           btn.disabled = false;
         });
     }
