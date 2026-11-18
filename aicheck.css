@@ -1,0 +1,70 @@
+/* aicheck.css — banner de la portada (#comprobar) y página comprobar.html.
+   Usa solo los tokens de base.css (azul de acción único, Inter, tarjetas 22px, campos 10px, selectores 18px).
+   Todo está acotado a #comprobar o #ac para no afectar a otras secciones. */
+
+/* ---------- Banner en la portada: franja oscura, compacta ---------- */
+#comprobar{padding:clamp(40px,6vw,64px) 20px}
+#comprobar .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px 48px}
+#comprobar .cb-text{flex:1 1 440px;min-width:0}
+#comprobar h2{font-size:clamp(26px,3.6vw,38px);max-width:24ch;margin-bottom:12px}
+#comprobar .lead{font-size:clamp(17px,1.8vw,19px);max-width:56ch}
+#comprobar .btn{flex:none}
+@media (max-width:640px){#comprobar .btn{width:100%}}
+
+/* ---------- Página comprobar.html ---------- */
+.ac-page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.ac-main{flex:1;display:flex;flex-direction:column}
+#ac{flex:1;text-align:center;padding-top:clamp(48px,8vw,96px)}
+
+/* botón "Volver a la web" (arriba, siempre visible, también en móvil) */
+.ac-back{display:inline-block;padding:6px 16px;border:1px solid var(--hairline);border-radius:980px;color:var(--ink);text-decoration:none;font-size:14px;line-height:1.4;transition:background .2s}
+.ac-back:hover{background:var(--parchment)}
+
+#ac .lead{margin:24px auto 0;max-width:46ch}
+
+/* campo + botón en una sola fila, como en la referencia */
+#ac .ac-form{max-width:680px;margin:36px auto 0;text-align:left}
+#ac .ac-bar{display:flex;align-items:center;gap:8px;padding:8px 8px 8px 16px;background:#2a2a2c;border:1px solid #424245;border-radius:18px}
+#ac .ac-bar:focus-within{outline:3px solid var(--primary-dark);outline-offset:2px}
+#ac .ac-bar svg{flex:none;color:var(--muted-dark)}
+#ac .ac-bar input{flex:1;min-width:0;padding:10px 4px;border:0;border-radius:10px;background:transparent;color:#fff;font:17px var(--font)}
+#ac .ac-bar input:focus-visible{outline:none}
+#ac .ac-bar input::placeholder{color:var(--muted-dark)}
+#ac .ac-bar .btn{flex:none}
+#ac .ac-hint{margin:10px 4px 0;font-size:14px;color:var(--muted-dark)}
+@media (max-width:520px){
+  #ac .ac-bar{flex-wrap:wrap;padding:12px}
+  #ac .ac-bar input{flex:1 1 calc(100% - 40px)}
+  #ac .ac-bar .btn{width:100%}
+}
+
+/* conversación / resultados */
+#ac .ac-chat{display:flex;flex-direction:column;gap:12px;max-width:680px;margin:28px auto 0;text-align:left}
+#ac .ac-chat:empty{display:none}
+#ac .ac-msg{max-width:100%;padding:16px 20px;border-radius:18px;background:#2a2a2c;color:#f5f5f7;overflow-wrap:anywhere}
+#ac .ac-msg.ac-user{align-self:flex-end;max-width:92%;background:var(--primary-dark);color:var(--ink);word-break:break-all}
+#ac .ac-msg p{margin:0 0 8px}
+#ac .ac-msg p:last-child{margin-bottom:0}
+#ac .ac-bad{color:var(--err-dark)}
+#ac .ac-good{color:#fff;font-weight:600}
+#ac .ac-note{margin-top:8px;font-size:14px;line-height:1.45;color:var(--muted-dark)}
+
+/* los 7 puntos mientras se analiza */
+#ac ul.ac-checks{list-style:none;margin:10px 0 0;padding:0}
+#ac ul.ac-checks li{display:flex;align-items:center;gap:12px;padding:5px 0}
+#ac .ac-spin{width:14px;height:14px;flex:none;border:2px solid #424245;border-top-color:var(--primary-dark);border-radius:50%;animation:ac-spin .9s linear infinite}
+@keyframes ac-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){#ac .ac-spin{animation-duration:3s}}
+#ac .ac-dot{width:8px;height:8px;margin:3px;flex:none;border-radius:50%;background:var(--muted-dark)}
+
+/* paso del email y formulario de la auditoría completa */
+#ac .ac-label{display:block;margin-top:12px;font-size:14px;line-height:1.4;color:#e8e8ed}
+#ac .ac-input{display:block;width:100%;margin:4px 0 6px;padding:10px 12px;border:1px solid var(--ink-48);border-radius:10px;background:#1d1d1f;color:#fff;font:17px var(--font)}
+#ac .ac-input::placeholder{color:var(--muted-dark)}
+#ac .ac-input:focus-visible{outline:3px solid var(--primary-dark);outline-offset:2px}
+#ac .ac-consent{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;font-size:14px;line-height:1.45;color:#e8e8ed}
+#ac .ac-consent input{width:18px;height:18px;flex:none;margin:3px 0 0;accent-color:var(--primary-dark)}
+#ac .ac-consent a{color:var(--primary-dark);text-decoration:underline}
+#ac .ac-err{min-height:1.2em;margin:8px 0 0;font-size:14px;line-height:1.4;color:var(--err-dark)}
+#ac .ac-msg .btn{margin-top:14px}
+#ac .ac-msg .btn[disabled]{opacity:.6;cursor:default}
