@@ -133,7 +133,7 @@
   function openRequestForm() {
     var box = addMsg("ac-gate");
     box.appendChild(el("p", "", "Para solicitar tu auditoría completa, confirma tus datos:"));
-    box.appendChild(el("p", "ac-note", "Auditoría: 99 € + IVA · 1 sitio web (hasta 5 páginas) · entrega dentro de  24 horas. Si contratas la optimización, el importe de la auditoría se descuenta."));
+    box.appendChild(el("p", "ac-note", "Auditoría: 99 € + IVA · 1 sitio web (hasta 5 páginas) · entrega dentro de 24 horas. Si contratas la optimización, el importe de la auditoría se descuenta."));
 
     function addField(id, labelText, type, value, autocomplete) {
       var lab = el("label", "ac-label", labelText);
@@ -280,11 +280,29 @@
     emailInput.focus();
   }
 
+  // Verificación de seguridad (Cloudflare Turnstile): cada token sirve una sola vez y caduca a los 5 minutos.
+  var warn = null;
+  function readToken() {
+    var t = form.querySelector('[name="cf-turnstile-response"]');
+    return t ? t.value : "";
+  }
+  function resetWidget() {
+    try { if (window.turnstile) window.turnstile.reset(); } catch (e) {}
+  }
+
   // Paso 1: enviar la URL y mostrar los 7 puntos mientras se espera.
   form.addEventListener("submit", function (ev) {
     ev.preventDefault();
     var value = input.value.trim();
     if (!value) return;
+    if (warn && warn.parentNode) { warn.parentNode.removeChild(warn); }
+    warn = null;
+    var token = readToken();
+    if (!token) {
+      warn = addMsg("");
+      warn.appendChild(el("p", "ac-bad", "La verificación de seguridad aún no ha terminado. Espera unos segundos y vuelve a pulsar «Analizar mi web». Si el problema continúa, recarga la página."));
+      return;
+    }
     currentUrl = value;
 
     go.disabled = true;
@@ -305,7 +323,9 @@
     botMsg.appendChild(list);
     scrollDown();
 
-    postForm(SCAN_URL, { url: value })
+    var scanRequest = postForm(SCAN_URL, { url: value, turnstileToken: token });
+    resetWidget(); // el token ya viajó con la petición: pedimos uno nuevo para el siguiente análisis
+    scanRequest
       .then(function (data) {
         if (data.ok === false || !data.scanId) {
           botMsg.textContent = "";

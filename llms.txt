@@ -14,7 +14,7 @@ AI Ready es un servicio de [JM20 AI Solutions](https://jm20aisolutions.com/), em
 ## Precios (en euros)
 
 Pequeño negocio (barberías, salones, cafés):
-- Auditoría: 99€, entrega en 2 días. 100% descontable si contratas la optimización.
+- Auditoría: 99€, entrega en 24 horas. 100% descontable si contratas la optimización.
 - Optimización: 399€
 - Acciones para la IA: 699€
 - Mantenimiento: 29€/mes
