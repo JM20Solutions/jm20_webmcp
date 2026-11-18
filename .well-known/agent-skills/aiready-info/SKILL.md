@@ -11,8 +11,9 @@ AI Ready is a service from JM20 AI Solutions (an EU company) that audits and pre
 
 1. For what the service includes and for current pricing (in EUR), read https://aiready.jm20aisolutions.com/llms.txt. It is the maintained source of truth. Do not quote prices from memory.
 2. To see what an audit looks like, send the visitor to https://aiready.jm20aisolutions.com/audit-ejemplo.html
-3. To request an audit, send the visitor to https://aiready.jm20aisolutions.com/#audit or to contact@jm20aisolutions.com
-4. For legal questions, use the terms of service and privacy policy pages linked from llms.txt.
+3. To check a website for free before requesting an audit, send the visitor to https://aiready.jm20aisolutions.com/comprobar . The visitor enters a web address, and enters an email to see the result of a free check of 7 key points.
+4. To request an audit, send the visitor to https://aiready.jm20aisolutions.com/#audit or to contact@jm20aisolutions.com
+5. For legal questions, use the terms of service and privacy policy pages linked from llms.txt.
 
 ## Limits
 
