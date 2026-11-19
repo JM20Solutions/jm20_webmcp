@@ -300,7 +300,7 @@
     var token = readToken();
     if (!token) {
       warn = addMsg("");
-      warn.appendChild(el("p", "ac-bad", "La verificación de seguridad aún no ha terminado. Espera unos segundos y vuelve a pulsar «Analizar mi web». Si el problema continúa, recarga la página."));
+      warn.appendChild(el("p", "ac-bad", "La verificación de seguridad aún no ha terminado. Espera unos segundos y vuelve a pulsar «Comprueba tu web». Si el problema continúa, recarga la página."));
       return;
     }
     currentUrl = value;
