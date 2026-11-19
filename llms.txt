@@ -38,7 +38,7 @@ No se puede garantizar que ChatGPT, Claude u otras IA recomienden o incluyan un 
 ## Enlaces
 
 - [Web de AI Ready](https://aiready.jm20aisolutions.com/)
-- [Solicitar auditoría](https://aiready.jm20aisolutions.com/#audit)
+- [Comprueba tu web](https://aiready.jm20aisolutions.com/comprobar)
 - [Ejemplo de auditoría](https://aiready.jm20aisolutions.com/audit-ejemplo.html)
 - [Términos de servicio](https://aiready.jm20aisolutions.com/terminos-de-servicio.html)
 - [Política de privacidad](https://aiready.jm20aisolutions.com/politica-de-privacidad.html)
