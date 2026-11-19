@@ -39,7 +39,7 @@ p{margin:0 0 12px}
 .score-status{display:inline-block;margin-top:10px;background:var(--amber-bg);color:var(--amber);padding:5px 9px;border-radius:5px;font-size:11px;font-weight:750}
 .score-details{align-self:center}
 .bar{height:9px;background:#e8edf1;border-radius:20px;overflow:hidden;margin:10px 0 15px}
-.bar span{display:block;width:42%;height:100%;background:#c58a32;border-radius:20px}
+.bar span{display:block;width:33%;height:100%;background:#c58a32;border-radius:20px}
 .tally{display:flex;gap:9px;flex-wrap:wrap}
 .chip{display:inline-flex;align-items:center;gap:6px;border-radius:5px;padding:5px 9px;font-size:11px;font-weight:750;white-space:nowrap}
 .ok{color:var(--green);background:var(--green-bg)}
