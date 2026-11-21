@@ -1,7 +1,7 @@
 /* vídeos: con data-src el vídeo sustituye a la simulación */
 [].forEach.call(document.querySelectorAll('.player,.cvid'),function(pl){
   var src=pl.dataset.src;if(!src)return;
-  var instant=(pl.id==='v1'); /* vídeo principal: se muestra ya, sin esperar al mp4 */
+ var instant=true;
   var v=document.createElement('video');v.controls=true;v.playsInline=true;v.preload=instant?'none':'metadata';
   if(pl.dataset.poster)v.poster=pl.dataset.poster;
   if(pl.dataset.captions){var t=document.createElement('track');t.kind='captions';t.src=pl.dataset.captions;t.srclang='es';t.label='Español';t.default=true;v.appendChild(t)}
