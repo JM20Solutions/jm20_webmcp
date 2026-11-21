@@ -38,6 +38,10 @@
 .tiers{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
 .tier{display:flex;flex-direction:column;background:#fff;border:1px solid var(--hairline);border-radius:22px;padding:28px 24px}
 .tier h3{font-size:22px;line-height:1.25;letter-spacing:-.02em}
+.tier h3 .tstep {
+    display: block;
+    margin-bottom: 6px;
+}
 .tp{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 6px;margin:20px 0 0;font:600 clamp(32px,3.2vw,42px)/1.1 var(--font);letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums}
 .tp .u{font:400 15px var(--font);letter-spacing:0;color:var(--ink-48)}
 .td{margin:8px 0 0;font-size:14px;line-height:1.43;color:var(--ink-48)}
