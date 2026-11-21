@@ -1,0 +1,29 @@
+/* fixes.css — se carga el último en index.html */
+
+/* --- Tarjetas de precios: filas compartidas (título, precio, texto, lista, botón alineados) --- */
+@media (min-width:641px){
+  .tiers{row-gap:0}
+  .tiers .tier{display:grid;grid-template-rows:subgrid;grid-row:span 5;row-gap:0;align-content:start}
+  .tiers .tier .tp{align-self:end}
+  .tiers .tier .btn{align-self:end}
+}
+@media (min-width:641px) and (max-width:1000px){
+  .tiers .tier:nth-child(n+3){margin-top:16px}
+}
+/* "Desde" en su propia línea para que "29€ /mes + IVA" no se parta */
+.tier .tp .u:first-child:not(:last-child){flex-basis:100%;font-size:14px}
+.tier .btn{padding-left:12px;padding-right:12px}
+
+/* --- Sección de datos (ahora justo bajo el hero, sobre fondo claro) --- */
+#trafico .shift{margin-top:0;max-width:none}
+#trafico .shift>p,#trafico .shift details{max-width:760px}
+#trafico .shift p{color:var(--ink-80)}
+#trafico .shift details{border-top-color:var(--hairline)}
+#trafico .shift summary{color:var(--primary)}
+#trafico .shift summary:hover{color:#0058b0}
+.stats{list-style:none;margin:32px 0 28px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.stat{border-top:2px solid var(--primary);padding-top:16px}
+.stat b{display:block;font:600 clamp(40px,5vw,64px)/1.03 var(--font);letter-spacing:-.035em;color:var(--ink);font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:10px;font-size:16px;line-height:1.45;color:var(--ink-80)}
+.stat small{display:block;margin-top:8px;font-size:13px;line-height:1.4;color:var(--ink-48)}
+@media (max-width:760px){.stats{grid-template-columns:1fr;gap:24px}}

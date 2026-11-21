@@ -7,7 +7,7 @@
   }
   if(!('IntersectionObserver' in window))return;
   var links={},all=document.querySelectorAll('.navlinks a:not(.btn)');
-  [].forEach.call(all,function(a){links[a.hash.slice(1)]=a});links.agentes=links.demo;links.beneficios=links.demo;
+  [].forEach.call(all,function(a){links[a.hash.slice(1)]=a});links.metodo=links.precios;
   var spy=new IntersectionObserver(function(es){es.forEach(function(e){
     if(!e.isIntersecting)return;
     [].forEach.call(all,function(a){a.removeAttribute('aria-current')});

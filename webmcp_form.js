@@ -30,7 +30,8 @@
     var url=f.elements.url.value;
     var tk=f.querySelector('[name="cf-turnstile-response"]'),token=tk?tk.value:'';
     if(!token){fail('Espera un momento a que termine la verificación de seguridad e inténtalo de nuevo.');return}
-    var body={nombre:f.elements.nombre.value.trim(),empresa:f.elements.empresa.value.trim(),url:url,email:f.elements.email.value.trim(),tamano:'pequeno',consentimiento:true,turnstileToken:token};
+    var ps=document.getElementById('plan-sel'),plan=ps&&ps.dataset.plan?ps.dataset.plan:'';
+    var body={nombre:f.elements.nombre.value.trim(),empresa:f.elements.empresa.value.trim()+(plan?' [Plan: '+plan+']':''),url:url,email:f.elements.email.value.trim(),tamano:'pequeno',consentimiento:true,turnstileToken:token};
     var h={'Content-Type':'application/json'};
     var ctl=new AbortController(),to=setTimeout(function(){ctl.abort()},15000);
     fetch(ep,{method:'POST',headers:h,body:JSON.stringify(body),signal:ctl.signal})
