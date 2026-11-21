@@ -1,10 +1,12 @@
 /* vídeos: con data-src el vídeo sustituye a la simulación */
 [].forEach.call(document.querySelectorAll('.player,.cvid'),function(pl){
   var src=pl.dataset.src;if(!src)return;
-  var v=document.createElement('video');v.controls=true;v.playsInline=true;v.preload='metadata';
+  var instant=(pl.id==='v1'); /* vídeo principal: se muestra ya, sin esperar al mp4 */
+  var v=document.createElement('video');v.controls=true;v.playsInline=true;v.preload=instant?'none':'metadata';
   if(pl.dataset.poster)v.poster=pl.dataset.poster;
   if(pl.dataset.captions){var t=document.createElement('track');t.kind='captions';t.src=pl.dataset.captions;t.srclang='es';t.label='Español';t.default=true;v.appendChild(t)}
-  v.addEventListener('loadedmetadata',function(){pl.textContent='';pl.appendChild(v);pl.hidden=false;var fg=pl.closest('figure');if(fg)fg.hidden=false});
+  function show(){pl.textContent='';pl.appendChild(v);pl.hidden=false;var fg=pl.closest('figure');if(fg)fg.hidden=false}
+  if(instant)show();else v.addEventListener('loadedmetadata',show);
   v.addEventListener('error',function(){console.warn('demos.js: no se pudo cargar el vídeo',src,'(¿ruta, subida o códec H.264/AAC?)')});
   v.src=src;
 });
