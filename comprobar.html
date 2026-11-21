@@ -4,42 +4,56 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Comprueba gratis si tu web está preparada para los agentes de IA | JM20</title>
-<meta name="description" content="Ingresa la url o direcccion tu web y comprobamos gratis 7 puntos clave para que ChatGPT, Claude, Gemini, Perplexity y otras IA puedan encontrarla y leerla.">
+<meta name="description" content="Ingresa la url o dirección de tu web y comprobamos gratis 7 puntos clave para que ChatGPT, Claude, Gemini, Perplexity y otras IA puedan encontrarla y leerla.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="JM20">
 <meta property="og:locale" content="es_ES">
 <meta property="og:title" content="Comprueba gratis si tu web está preparada para los agentes de IA">
-<meta property="og:description" content="Ingresa la url o direcccion tu web y comprobamos gratis 7 puntos clave para que ChatGPT, Claude, Gemini, Perplexity y otras IA puedan encontrarla y leerla.">
+<meta property="og:description" content="Ingresa la url o dirección de tu web y comprobamos gratis 7 puntos clave para que ChatGPT, Claude, Gemini, Perplexity y otras IA puedan encontrarla y leerla.">
 <meta property="og:image" content="https://jm20aisolutions.com/og-image.png">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="jm20-logo.png">
 <link rel="preload" href="fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="base.css">
-<link rel="stylesheet" href="aicheck.css">
+<link rel="stylesheet" href="aicheck.css?v=2">
 <link rel="stylesheet" href="consent.css?v=2">
 </head>
 <body class="ac-page">
 <nav class="global" aria-label="Principal">
-<a href="index.html"><img src="jm20-logo.png" alt="JM20"></a>
+<a href="/"><img src="jm20-logo.png" alt="JM20"></a>
 <span class="sp"></span>
-<a class="ac-back" href="index.html">← Volver a la web</a>
+<a class="ac-back" href="/">← Volver a la web</a>
 </nav>
 <main class="ac-main">
 <section class="tile dark" id="ac">
 <div class="wrap">
 <h1>¿Está tu web preparada para los agentes de IA?</h1>
-<p class="lead">Ingresa la url o direcccion tu web y comprobamos gratis 7 puntos clave para que ChatGPT, Claude, Gemini, Perplexity y otras IA puedan encontrarla y leerla..</p>
+<p class="lead">Ingresa la url o dirección de tu web y comprobamos gratis 7 puntos clave para que ChatGPT, Claude, Gemini, Perplexity y otras IA puedan encontrarla y leerla.</p>
 <form class="ac-form" id="form">
 <div class="ac-bar">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19"/><path d="M12 2.5c2.6 2.6 4 5.9 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-5.9-4-9.5s1.4-6.9 4-9.5z"/></svg>
-<input type="text" id="urlInput" placeholder="https://tuweb.com" autocomplete="url" inputmode="url" autocapitalize="none" spellcheck="false" aria-label="URL de tu web" required>
-<button class="btn" type="submit" id="go">Comprueba tu web </button>
+<input type="text" id="urlInput" placeholder="www.miweb.com" autocomplete="url" inputmode="url" autocapitalize="none" spellcheck="false" aria-label="URL de tu web" aria-describedby="urlHint urlErr" required>
+<button class="btn" type="submit" id="go">Comprueba tu web</button>
 </div>
+<p class="ac-err" id="urlErr" role="alert" hidden></p>
 <div class="cf-turnstile" data-sitekey="0x4AAAAAAGHi1JDlPTvbaHQj" data-appearance="interaction-only" data-theme="dark" data-language="es"></div>
-<p class="ac-hint">Por ejemplo: www.miweb.com</p>
+<p class="ac-hint" id="urlHint">Por ejemplo: www.miweb.com. No hace falta escribir https://.</p>
+<p class="ac-hint">Después del análisis te pediremos tu email para mostrarte el resultado.</p>
 </form>
 <div class="ac-chat" id="chat" aria-live="polite"></div>
+<div class="ac-points">
+<h2>Qué revisamos</h2>
+<ul>
+<li><strong>Archivo robots.txt</strong>Un archivo que dice a los robots qué partes de tu web pueden visitar.</li>
+<li><strong>Mapa del sitio (sitemap.xml)</strong>La lista de las páginas de tu web, para que no se les escape ninguna.</li>
+<li><strong>Cabeceras Link</strong>Señales invisibles que apuntan a los agentes hacia lo más útil de tu web.</li>
+<li><strong>Contenido en Markdown para agentes</strong>Una versión en texto simple de tus páginas, fácil de leer para una IA.</li>
+<li><strong>Reglas para rastreadores de IA</strong>Qué bots de IA pueden entrar a tu web y cuáles no.</li>
+<li><strong>Señales de uso de contenido</strong>Si permites que las IA usen tu contenido, y para qué.</li>
+<li><strong>Índice de Agent Skills</strong>Una lista de lo que un agente puede hacer en tu web, como reservar.</li>
+</ul>
+</div>
 </div>
 </section>
 </main>
@@ -57,7 +71,7 @@
 </div>
 </footer>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-<script src="aicheck.js" defer></script>
+<script src="aicheck.js?v=2" defer></script>
 <script src="consent.js?v=2" defer></script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b77bb28fac574da2bfb181f3bd7b3aa2"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

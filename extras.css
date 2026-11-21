@@ -32,3 +32,9 @@
 @media (max-width:640px){.meta{grid-template-columns:1fr}.area{padding:20px}.area-head{flex-direction:column}}
 .legal .disclaimer{margin-top:32px}
 .cta-row .alt{align-self:center}
+
+/* datos ampliados desplegables y aviso bajo los beneficios (index.html) */
+.shift details{margin-top:24px;border-top:1px solid rgba(255,255,255,.18);padding-top:4px}
+.shift summary{cursor:pointer;padding:12px 0;font-weight:600;color:var(--primary-dark)}
+.shift summary:hover{color:#5cb3ff}
+.gains .caveat{margin-top:16px;font-size:14px;line-height:1.5;color:var(--muted-dark)}

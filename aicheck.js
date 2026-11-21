@@ -47,9 +47,30 @@
     chat.appendChild(m);
     return m;
   }
+  var reduceMotion = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  // Lleva la vista al último mensaje (no al final de la página) y respeta "reducir movimiento".
   function scrollDown() {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    var last = chat.lastElementChild;
+    if (!last) return;
+    last.scrollIntoView({ behavior: (reduceMotion && reduceMotion.matches) ? "auto" : "smooth", block: "nearest" });
   }
+
+  // Comprobación básica de la dirección antes de enviarla. No cambia lo que se envía.
+  function looksLikeUrl(v) {
+    if (/\s/.test(v)) return false;
+    var m = v.match(/^([a-z][a-z0-9+.-]*):\/\//i);
+    if (m && !/^https?$/i.test(m[1])) return false;
+    var host = v.replace(/^[a-z][a-z0-9+.-]*:\/\//i, "").split(/[\/?#]/)[0];
+    return /^[^\s.\/:@]+(\.[^\s.\/:@]+)+(:\d+)?$/.test(host);
+  }
+  var urlErr = document.getElementById("urlErr");
+  function setUrlError(msg) {
+    if (!urlErr) return;
+    urlErr.textContent = msg || "";
+    urlErr.hidden = !msg;
+    input.setAttribute("aria-invalid", msg ? "true" : "false");
+  }
+  input.addEventListener("input", function () { setUrlError(""); });
 
   // Envía campos de formulario a un webhook de n8n y devuelve la respuesta JSON ya interpretada.
   function postForm(url, fields) {
@@ -73,7 +94,6 @@
   function finish() {
     go.disabled = false;
     input.disabled = false;
-    input.value = "";
     input.focus();
     scrollDown();
   }
@@ -97,6 +117,35 @@
     box.appendChild(p);
   }
 
+  // Botón para pedir la auditoría completa (abre el formulario del paso 3).
+  function addAuditButton(box) {
+    var btn = el("button", "btn", "Solicitar auditoría completa");
+    btn.type = "button";
+    btn.addEventListener("click", function () {
+      btn.disabled = true;
+      openRequestForm();
+    });
+    box.appendChild(btn);
+  }
+
+  // Vuelve al principio para analizar otra dirección.
+  function resetScan() {
+    chat.textContent = "";
+    warn = null;
+    currentScanId = "";
+    currentEmail = "";
+    go.disabled = false;
+    input.disabled = false;
+    input.focus();
+    input.select();
+  }
+  function addAnotherLink(parent) {
+    var b = el("button", "ac-link", "Analizar otra web");
+    b.type = "button";
+    b.addEventListener("click", resetScan);
+    parent.appendChild(b);
+  }
+
   function renderResult(box, data) {
     if (!data || data.ok === false) {
       box.appendChild(el("p", "ac-bad", (data && data.error) || "No se pudo completar el análisis."));
@@ -112,6 +161,14 @@
       box.appendChild(el("p", "ac-note", "Esto no garantiza que las IA te recomienden. Nuestra auditoría revisa lo que este análisis rápido no cubre."));
     } else if (n === 0) {
       box.appendChild(el("p", "", "No hemos podido comprobar " + unable + " de los " + total + " puntos clave. Puede que tu web bloquee los análisis automáticos."));
+      var help = el("p", "ac-note");
+      help.appendChild(document.createTextNode("Puedes pedirnos la auditoría completa o escribirnos a "));
+      var mail = el("a", "", CONTACT_EMAIL);
+      mail.href = "mailto:" + CONTACT_EMAIL;
+      help.appendChild(mail);
+      help.appendChild(document.createTextNode("."));
+      box.appendChild(help);
+      addAuditButton(box);
     } else {
       box.appendChild(el("p", "ac-bad", "Tu web no supera " + n + " de los " + total + " puntos clave."));
       if (unable > 0) {
@@ -119,14 +176,9 @@
       }
       box.appendChild(el("p", "", "Si quieres saber cuáles son y cómo solucionarlos, solicita la auditoría completa."));
 
-      var btn = el("button", "btn", "Solicitar auditoría completa");
-      btn.type = "button";
-      btn.addEventListener("click", function () {
-        btn.disabled = true;
-        openRequestForm();
-      });
-      box.appendChild(btn);
+      addAuditButton(box);
     }
+    addAnotherLink(box);
   }
 
   // Paso 3: formulario de solicitud de auditoría (rellenado con lo que la persona ya indicó).
@@ -238,6 +290,7 @@
     var btn = el("button", "btn", "Ver el resultado");
     btn.type = "button";
     gate.appendChild(btn);
+    addAnotherLink(gate);
 
     function submitGate() {
       var email = emailInput.value.trim();
@@ -295,6 +348,12 @@
     ev.preventDefault();
     var value = input.value.trim();
     if (!value) return;
+    if (!looksLikeUrl(value)) {
+      setUrlError("Escribe una dirección web válida, por ejemplo: www.miweb.com");
+      input.focus();
+      return;
+    }
+    setUrlError("");
     if (warn && warn.parentNode) { warn.parentNode.removeChild(warn); }
     warn = null;
     var token = readToken();
